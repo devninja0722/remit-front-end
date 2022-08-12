@@ -1,5 +1,7 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { classNames } from 'app/functions'
+import Button from 'app/components/Button'
+import { EyeIcon, EyeOffIcon } from '@heroicons/react/outline'
 
 const defaultClassName = 'bg-white'
 
@@ -22,27 +24,31 @@ export const Input = React.memo(
       handleInput(nextUserInput)
     }
 
+    const [show, setShow] = useState(false)
     return (
-      <input
-        {...rest}
-        value={value}
-        onChange={(event) => {
-          enforcer(event.target.value.replace(/,/g, '.'))
-        }}
-        // universal input options
-        inputMode="text"
-        autoComplete="off"
-        autoCorrect="off"
-        // text-specific options
-        type="password"
-        pattern="[a-zA-Z0-9]+@[a-zA-Z0-9]+\.[A-Za-z]+$"
-        placeholder={placeholder || 'Enter your password'}
-        spellCheck="false"
-        className={classNames(
-          'relative text-base outline-none px-5 py-3 border flex-auto overflow-hidden overflow-ellipsis placeholder-light-gray focus:placeholder-dark-gray rounded-1 transition-all ease-in',
-          className, error ? 'border-red focus:border-red' : 'border-stroke focus:border-blue'
-        )}
-      />
+      <div className='flex justify-end align-middle'>
+        <input
+          {...rest}
+          value={value}
+          onChange={(event) => {
+            enforcer(event.target.value.replace(/,/g, '.'))
+          }}
+          // universal input options
+          inputMode="text"
+          autoComplete="off"
+          autoCorrect="off"
+          // text-specific options
+          type={show ? "text" : "password"}
+          pattern="[a-zA-Z0-9]+@[a-zA-Z0-9]+\.[A-Za-z]+$"
+          placeholder={placeholder || 'Enter your password'}
+          spellCheck="false"
+          className={classNames(
+            'relative text-base outline-none px-5 py-3 border flex-auto overflow-hidden overflow-ellipsis placeholder-light-gray focus:placeholder-dark-gray rounded-1 transition-all ease-in',
+            className, error ? 'border-red focus:border-red' : 'border-stroke focus:border-blue'
+          )}
+        />
+        <Button variant="link" size="sm" className="absolute bg-white m-[3px] text-primary hover:text-blue" onMouseDown={() => setShow(true)} onMouseUp={() => setShow(false)}>{show ? <EyeIcon width={16} /> : <EyeOffIcon width={16} />}</Button>
+      </div>
     )
   }
 )
