@@ -2,6 +2,9 @@
 @tailwind components;
 @tailwind utilities;
 
+@import "@fontsource/montserrat/variable.css";
+@import "@fontsource/poppins/index.css";
+
 html,
 body {
   padding: 0;
