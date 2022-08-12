@@ -26,7 +26,7 @@ interface ContainerProps {
 }
 
 const Container = ({ children, maxWidth = '2xl', className = '', id }: ContainerProps) => (
-  <div className={classNames(className, TailwindMapper[maxWidth], 'w-full p-0 md:p-1.5 lg:p-2.5 font-montserrat text-primary')} id={id}>
+  <div className={classNames(className, TailwindMapper[maxWidth], 'w-full p-0 md:p-1.5 lg:p-2.5 font-montserrat text-primary text-base')} id={id}>
     {children}
   </div>
 )
