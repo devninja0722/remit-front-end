@@ -1,9 +1,10 @@
 import type { NextPage } from "next"
-import { useState, useRef } from "react"
+import { useState } from "react"
 import Select from "react-select"
 import Head from "next/head"
 import Container from "app/components/Container"
 import Input from "app/components/Input"
+import Button from "app/components/Button"
 import { escapeRegExp } from 'app/functions'
 
 const SignIn: NextPage = () => {
@@ -15,10 +16,15 @@ const SignIn: NextPage = () => {
 
   const [email, setEmail] = useState("")
   const [emailError, setEmailError] = useState(false)
+  const [password, setPassword] = useState("")
 
   const handleEmailInput = (value: string) => {
     setEmail(value);
     setEmailError(!(value === '' || /^[a-zA-Z0-9]+((?:\.[a-zA-Z0-9]+?)?)+@[a-zA-Z0-9]+\.[A-Za-z]+$/.test(escapeRegExp(value))))
+  }
+
+  const handlePasswordInput = (value: string) => {
+    setPassword(value);
   }
 
   return (
@@ -33,7 +39,7 @@ const SignIn: NextPage = () => {
           <div className="font-poppins text-xl">Logo</div>
           <Select id="lang-select" instanceId="lang-select" options={langOptions} defaultValue={defaultLang} className="w-36" />
         </div>
-        <div className="rounded-2.5 bg-white w-1/2 min-w-96 mx-auto mt-8 p-8">
+        <div className="grid space-y-6 rounded-2.5 bg-white w-96 mx-auto mt-16 p-8">
           <div className="grid py-2 space-y-10">
             <div className="text-2xl">Logo</div>
             <div className="grid space-y-5">
@@ -44,12 +50,19 @@ const SignIn: NextPage = () => {
                 </div>
                 <div className="grid space-y-3">
                   <label>Password</label>
-                  <input />
-                  <div className="text-sm text-blue">
-                    Forget password?
+                  <Input.Password value={password} handleInput={handlePasswordInput} />
+                  <div className="flex justify-end">
+                    <Button variant="empty" color="blue" size="sm">Forget password?</Button>
                   </div>
                 </div>
               </div>
+            </div>
+          </div>
+          <div className="grid space-y-5">
+            <Button>Login</Button>
+            <div className="flex justify-between text-sm px-2">
+              <span>New account on RemitWise?</span>
+              <Button variant="empty" color="blue" size="sm">Create new account</Button>
             </div>
           </div>
         </div>
