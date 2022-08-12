@@ -47,7 +47,8 @@ export const Input = React.memo(
             className, error ? 'border-red focus:border-red' : 'border-stroke focus:border-blue'
           )}
         />
-        <Button variant="link" size="sm" className="absolute bg-white m-[3px] text-primary hover:text-blue" onMouseDown={() => setShow(true)} onMouseUp={() => setShow(false)}>{show ? <EyeIcon width={16} /> : <EyeOffIcon width={16} />}</Button>
+        <Button variant="link" size="sm" className="absolute bg-white m-[3px] text-primary hover:text-blue" onClick={() => setShow(!show)}>{show ? <EyeIcon width={16} /> : <EyeOffIcon width={16} />}</Button>
+        {/* <Button variant="link" size="sm" className="absolute bg-white m-[3px] text-primary hover:text-blue" onMouseDown={() => setShow(true)} onMouseUp={() => setShow(false)}>{show ? <EyeIcon width={16} /> : <EyeOffIcon width={16} />}</Button> */}
       </div>
     )
   }
