@@ -4,6 +4,8 @@
     "paths": {
       "app/components": ["./components"],
       "app/components/*": ["./components/*"],
+      "app/constants": ["./constants"],
+      "app/constants/*": ["./constants/*"],
       "app/functions": ["./functions"],
       "app/functions/*": ["./functions/*"],
       "app/styles": ["./styles"],

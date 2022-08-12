@@ -26,11 +26,35 @@ input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
   /* display: none; <- Crashes Chrome on hover */
   -webkit-appearance: none;
-  margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
+  margin: 0;
+  /* <-- Apparently some margin are still there even though it's hidden */
 }
 
 input[type="number"] {
-  -moz-appearance: textfield; /* Firefox */
+  -moz-appearance: textfield;
+  /* Firefox */
+}
+
+#country-select .css-x19aeh-control,
+#country-select .css-fl6yov-control {
+  border: none !important;
+  box-shadow: none !important;
+  color: white;
+  background: #0595f8;
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+}
+
+.css-6j8wv5-Input,
+.css-1pndypt-Input,
+.css-qc6sy-singleValue,
+.css-1gtu0rj-indicatorContainer *,
+.css-tlfecz-indicatorContainer * {
+  color: white !important;
+}
+
+.css-1okebmr-indicatorSeparator {
+  background: rgb(255, 255, 255) !important;
 }
 
 @media (prefers-color-scheme: dark) {

@@ -43,12 +43,12 @@ export const Input = React.memo(
           placeholder={placeholder || 'Enter your password'}
           spellCheck="false"
           className={classNames(
-            'relative text-base outline-none px-5 py-3 border flex-auto overflow-hidden overflow-ellipsis placeholder-light-gray focus:placeholder-dark-gray rounded-1 transition-all ease-in',
+            'relative text-base outline-none px-4 h-[38px] border flex-auto overflow-hidden overflow-ellipsis placeholder-light-gray focus:placeholder-dark-gray rounded-1 transition-all ease-in',
             className, error ? 'border-red focus:border-red' : 'border-stroke focus:border-blue'
           )}
         />
-        <Button variant="link" size="sm" className="absolute bg-white m-[3px] text-primary hover:text-blue" onClick={() => setShow(!show)}>{show ? <EyeIcon width={16} /> : <EyeOffIcon width={16} />}</Button>
-        {/* <Button variant="link" size="sm" className="absolute bg-white m-[3px] text-primary hover:text-blue" onMouseDown={() => setShow(true)} onMouseUp={() => setShow(false)}>{show ? <EyeIcon width={16} /> : <EyeOffIcon width={16} />}</Button> */}
+        <Button variant="link" size="sm" className="absolute bg-white m-[4px] h-[30px] text-primary hover:text-blue" onClick={() => setShow(!show)}>{show ? <EyeIcon width={16} /> : <EyeOffIcon width={16} />}</Button>
+        {/* <Button variant="link" size="sm" className="absolute bg-white m-[4px] h-[30px] text-primary hover:text-blue" onMouseDown={() => setShow(true)} onMouseUp={() => setShow(false)}>{show ? <EyeIcon width={16} /> : <EyeOffIcon width={16} />}</Button> */}
       </div>
     )
   }

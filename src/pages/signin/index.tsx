@@ -9,8 +9,8 @@ import { escapeRegExp } from 'app/functions'
 
 const SignIn: NextPage = () => {
   const langOptions = [
-    { id: 1, value: "en", label: "English" },
-    { id: 2, value: "zh", label: "中文" },
+    { value: "en", label: "English" },
+    { value: "zh", label: "中文" },
   ]
   const defaultLang = langOptions[0]
 

@@ -38,10 +38,10 @@ export const Input = React.memo(
         // text-specific options
         type="number"
         pattern="[0-9][0-9][0-9][0-9][0-9][0-9]$"
-        placeholder={placeholder || 'Enter your Code'}
+        placeholder={placeholder || 'Enter your code'}
         spellCheck="false"
         className={classNames(
-          'relative text-base outline-none px-5 py-3 border flex-auto overflow-hidden overflow-ellipsis placeholder-light-gray focus:placeholder-dark-gray rounded-1 transition-all ease-in',
+          'relative text-base outline-none px-4 h-[38px] border flex-auto overflow-hidden overflow-ellipsis placeholder-light-gray focus:placeholder-dark-gray rounded-1 transition-all ease-in',
           className, error ? 'border-red focus:border-red' : 'border-stroke focus:border-blue'
         )}
       />

@@ -1,14 +1,22 @@
+import React from 'react'
+import Select, { StylesConfig } from 'react-select';
 import Button from 'app/components/Button'
 import { classNames, escapeRegExp } from 'app/functions'
-
-import React from 'react'
-
+import { COUNTRIES } from 'app/constants/countries';
 
 const defaultClassName = 'bg-white'
+
+var countryList: any[] = []
+COUNTRIES.map((item, i) => countryList.push({
+  value: item.dial_code,
+  label: item.dial_code,
+}))
 
 export const Input = React.memo(
   ({
     value,
+    areaCode,
+    handleSelect,
     handleInput,
     error,
     placeholder,
@@ -17,6 +25,8 @@ export const Input = React.memo(
     ...rest
   }: {
     value: string | number
+    areaCode: any
+    handleSelect: (input: string) => void
     handleInput: (input: string) => void
     error?: boolean
     placeholder?: string
@@ -30,6 +40,24 @@ export const Input = React.memo(
 
     return (
       <div className='flex justify-end align-middle'>
+        <Select
+          id="country-select" instanceId="country-select"
+          defaultValue={areaCode}
+          options={countryList}
+          className="w-24 text-sm text-center"
+          onChange={(event) => {
+            handleSelect(event.value)
+          }}
+          theme={(theme) => ({
+            ...theme,
+            borderRadius: 0,
+            colors: {
+              ...theme.colors,
+              primary25: '#0595f888',
+              primary: '#0595f8',
+            },
+          })}
+        />
         <input
           {...rest}
           value={value}
@@ -37,27 +65,26 @@ export const Input = React.memo(
             enforcer(event.target.value.replace(/,/g, '.'))
           }}
           // universal input options
-          inputMode="email"
+          inputMode="text"
           autoComplete="off"
           autoCorrect="off"
           // text-specific options
-          type="email"
-          pattern="[a-zA-Z0-9]+@[a-zA-Z0-9]+\.[A-Za-z]+$"
-          placeholder={placeholder || 'Enter your email'}
+          type="number"
+          pattern="[0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9]$"
+          placeholder={placeholder || 'Enter your code'}
           spellCheck="false"
           className={classNames(
-            'relative text-base outline-none px-4 h-[38px] border flex-auto overflow-hidden overflow-ellipsis placeholder-light-gray focus:placeholder-dark-gray rounded-1 transition-all ease-in',
+            'relative text-base outline-none px-4 w-32 h-[38px] border flex-auto overflow-hidden overflow-ellipsis placeholder-light-gray focus:placeholder-dark-gray rounded-r-1 transition-all ease-in',
             className, error ? 'border-red focus:border-red' : 'border-stroke focus:border-blue'
           )}
         />
         {hasControl && <Button variant="link" size="sm" className="absolute bg-white m-[4px] h-[30px] text-blue/90 hover:text-blue border-l rounded-none">Send</Button>}
       </div>
-
     )
   }
 )
 
-Input.displayName = 'EmailInput'
+Input.displayName = 'PhoneInput'
 
 export default Input
 
