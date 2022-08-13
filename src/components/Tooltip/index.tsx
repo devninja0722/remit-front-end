@@ -13,7 +13,7 @@ const Tooltip = ({ text, ...rest }: TooltipProps) => {
   return (
     <Popover
       content={
-        <div className="w-full px-2 py-1 font-medium bg-dark-blue text-white text-center transition-all rounded-1 text-sm">
+        <div className="mx-4 px-3 py-1.5 font-medium bg-dark-blue text-white text-center transition-all rounded-1 text-sm">
           {text}
         </div>
       }

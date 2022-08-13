@@ -124,12 +124,12 @@ const SignUp: NextPage = () => {
               </div>
             </div>
           </div>
-          <div className="flex justify-between">
-            <div className="flex space-x-4 items-center text-xs md:text-sm px-2 w-1/2">
+          <div className="grid md:flex md:justify-between">
+            <div className="flex justify-between md:justify-start md:space-x-4 items-center text-xs md:text-sm px-2 w-full md:w-1/2">
               <span className="flex justify-center">Already have account?</span>
               <Button variant="empty" color="blue" size="sm" className="h-9">Sign In</Button>
             </div>
-            <Button className="w-1/4" size="sm">Sign Up</Button>
+            <Button className="w-full md:w-1/4" size="sm">Sign Up</Button>
           </div>
         </div>
       </div>
