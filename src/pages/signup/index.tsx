@@ -75,13 +75,13 @@ const SignUp: NextPage = () => {
   }
 
   return (
-    <Container id="dashboard-page" className="h-[100vh]" maxWidth="full">
+    <Container id="signup-page" maxWidth="full">
       <Head>
-        <title>SignUp | RemitWise</title>
+        <title>Sign Up | RemitWise</title>
         <meta name="description" content="RemitWise" />
       </Head>
 
-      <div className="h-full px-8 py-6 transition-all bg-center bg-cover bg-compound md:px-16 md:py-12 lg:px-36 lg:py-16">
+      <div className="px-8 py-6 transition-all md:px-16 md:py-12 lg:px-36 lg:py-16">
         <div className="flex justify-between align-center">
           <div className="text-lg font-semibold font-poppins md:text-xl">Logo</div>
           <Select id="lang-select" instanceId="lang-select" options={langOptions} defaultValue={defaultLang} className="text-xs font-semibold w-36 md:text-sm" />

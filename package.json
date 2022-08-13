@@ -1,5 +1,5 @@
 {
-  "name": "next-scaffold",
+  "name": "remitwise-frontend",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -17,6 +17,7 @@
     "next": "12.2.4",
     "react": "18.2.0",
     "react-dom": "18.2.0",
+    "react-dropzone": "^14.2.2",
     "react-flags-select": "^2.2.3",
     "react-popper": "^2.3.0",
     "react-select": "^5.4.0"

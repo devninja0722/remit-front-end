@@ -8,6 +8,10 @@ module.exports = {
   ],
   theme: {
     extend: {
+      borderWidth: {
+        1.5: "6px",
+        2.5: "10px",
+      },
       borderRadius: {
         1: "4px",
         2.5: "10px",
@@ -20,6 +24,7 @@ module.exports = {
         blue: "#0595F8",
         "dark-blue": "#1E4FFF",
         red: "#E93B04",
+        success: "#00B812",
         "dark-gray": "#BEBCBC",
         "light-gray": "#CFCDCD",
         stroke: "#ECECEC",

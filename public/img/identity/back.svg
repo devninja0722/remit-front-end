@@ -1,0 +1,141 @@
+<svg
+  width="174"
+  height="111"
+  viewBox="0 0 174 111"
+  fill="none"
+  xmlns="http://www.w3.org/2000/svg"
+>
+  <rect x="9" y="9" width="149" height="93" rx="4" fill="#DFEBFA" />
+  <rect
+    x="20.8018"
+    y="18.1689"
+    width="123.921"
+    height="22.2676"
+    rx="3"
+    fill="#B1DBFC"
+  />
+  <rect
+    x="20.8018"
+    y="53.5352"
+    width="25.0792"
+    height="3.92958"
+    rx="1.96479"
+    fill="#FF4756"
+  />
+  <rect
+    x="54.7329"
+    y="53.5352"
+    width="89.9901"
+    height="3.92958"
+    rx="1.96479"
+    fill="#B1DBFC"
+  />
+  <rect
+    x="54.7329"
+    y="62.7041"
+    width="59.0099"
+    height="3.92958"
+    rx="1.96479"
+    fill="#B1DBFC"
+  />
+  <rect
+    x="20.8018"
+    y="71.873"
+    width="25.0792"
+    height="3.92958"
+    rx="1.96479"
+    fill="#FF4756"
+  />
+  <rect
+    x="54.7329"
+    y="71.873"
+    width="89.9901"
+    height="3.92958"
+    rx="1.96479"
+    fill="#B1DBFC"
+  />
+  <rect
+    x="20.8018"
+    y="82.3521"
+    width="25.0792"
+    height="3.92958"
+    rx="1.96479"
+    fill="#FF4756"
+  />
+  <rect
+    x="54.7329"
+    y="82.3521"
+    width="89.9901"
+    height="3.92958"
+    rx="1.96479"
+    fill="#B1DBFC"
+  />
+  <mask
+    id="path-10-outside-1_445_6192"
+    maskUnits="userSpaceOnUse"
+    x="0"
+    y="0"
+    width="16"
+    height="16"
+    fill="black"
+  >
+    <rect fill="white" width="16" height="16" />
+    <path d="M2 5C2 3.34315 3.34315 2 5 2H16V16H2V5Z" />
+  </mask>
+  <path
+    d="M0 5C0 2.23858 2.23858 0 5 0H16V4H5C4.44772 4 4 4.44772 4 5H0ZM16 16H2H16ZM0 16V5C0 2.23858 2.23858 0 5 0V4C4.44772 4 4 4.44772 4 5V16H0ZM16 2V16V2Z"
+    fill="#0595F8"
+    mask="url(#path-10-outside-1_445_6192)"
+  />
+  <mask
+    id="path-12-outside-2_445_6192"
+    maskUnits="userSpaceOnUse"
+    x="158"
+    y="0"
+    width="16"
+    height="16"
+    fill="black"
+  >
+    <rect fill="white" x="158" width="16" height="16" />
+    <path d="M172 5C172 3.34315 170.657 2 169 2H158V16H172V5Z" />
+  </mask>
+  <path
+    d="M174 5C174 2.23858 171.761 0 169 0H158V4H169C169.552 4 170 4.44772 170 5H174ZM158 16H172H158ZM174 16V5C174 2.23858 171.761 0 169 0V4C169.552 4 170 4.44772 170 5V16H174ZM158 2V16V2Z"
+    fill="#0595F8"
+    mask="url(#path-12-outside-2_445_6192)"
+  />
+  <mask
+    id="path-14-outside-3_445_6192"
+    maskUnits="userSpaceOnUse"
+    x="0"
+    y="95"
+    width="16"
+    height="16"
+    fill="black"
+  >
+    <rect fill="white" y="95" width="16" height="16" />
+    <path d="M2 106C2 107.657 3.34315 109 5 109H16V95H2V106Z" />
+  </mask>
+  <path
+    d="M0 106C0 108.761 2.23858 111 5 111H16V107H5C4.44772 107 4 106.552 4 106H0ZM16 95H2H16ZM0 95V106C0 108.761 2.23858 111 5 111V107C4.44772 107 4 106.552 4 106V95H0ZM16 109V95V109Z"
+    fill="#0595F8"
+    mask="url(#path-14-outside-3_445_6192)"
+  />
+  <mask
+    id="path-16-outside-4_445_6192"
+    maskUnits="userSpaceOnUse"
+    x="158"
+    y="95"
+    width="16"
+    height="16"
+    fill="black"
+  >
+    <rect fill="white" x="158" y="95" width="16" height="16" />
+    <path d="M172 106C172 107.657 170.657 109 169 109H158V95H172V106Z" />
+  </mask>
+  <path
+    d="M174 106C174 108.761 171.761 111 169 111H158V107H169C169.552 107 170 106.552 170 106H174ZM158 95H172H158ZM174 95V106C174 108.761 171.761 111 169 111V107C169.552 107 170 106.552 170 106V95H174ZM158 109V95V109Z"
+    fill="#0595F8"
+    mask="url(#path-16-outside-4_445_6192)"
+  />
+</svg>

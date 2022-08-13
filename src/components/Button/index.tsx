@@ -24,8 +24,8 @@ const SIZE = {
 
 const FILLED = {
   default: 'bg-transparent opacity-90 hover:opacity-100',
-  red: 'bg-red bg-opacity-90 w-full text-white hover:bg-opacity-100 disabled:bg-opacity-90',
-  blue: 'bg-blue bg-opacity-90 w-full text-white hover:bg-opacity-100 disabled:bg-opacity-90',
+  red: 'bg-red bg-opacity-90 w-full text-white hover:bg-opacity-100 disabled:bg-opacity-40',
+  blue: 'bg-blue bg-opacity-90 w-full text-white hover:bg-opacity-100 disabled:bg-opacity-40',
 }
 
 const OUTLINED = {
@@ -94,7 +94,7 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
           // @ts-ignore TYPE NEEDS FIXING
           variant !== 'empty' ? DIMENSIONS[size] : '',
           fullWidth ? 'w-full' : '',
-          'font-medium flex items-center justify-center gap-1 transition-all ease-in',
+          'font-medium flex items-center justify-center gap-1 transition-all ease-in disabled:cursor-not-allowed cursor-pointer',
           className
         )}
         {...rest}
