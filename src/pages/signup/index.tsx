@@ -1,10 +1,11 @@
 import type { NextPage } from "next"
-import { useState } from "react"
+import { useState, useCallback } from "react"
 import Select from "react-select"
 import Head from "next/head"
 import Container from "app/components/Container"
 import Input from "app/components/Input"
 import Button from "app/components/Button"
+import Tooltip from 'app/components/Tooltip'
 import { escapeRegExp } from 'app/functions'
 
 const SignUp: NextPage = () => {
@@ -16,8 +17,11 @@ const SignUp: NextPage = () => {
 
   const [email, setEmail] = useState("")
   const [emailError, setEmailError] = useState(false)
+
   const [emailCode, setEmailCode] = useState("")
   const [emailCodeError, setEmailCodeError] = useState(false)
+  const [emailCodeTooltip, setEmailCodeTooltip] = useState(false)
+
   const [areaCode, setAreaCode] = useState("+1")
   const [phone, setPhone] = useState("")
   const [phoneError, setPhoneError] = useState(false)
@@ -91,10 +95,12 @@ const SignUp: NextPage = () => {
                   <label>Email</label>
                   <Input.Email value={email} handleInput={handleEmailInput} error={emailError} hasControl />
                 </div>
-                <div className="grid space-y-3 text-sm md:text-base">
-                  <label>Email Verification Code</label>
-                  <Input.Number value={emailCode} handleInput={handleEmailCodeInput} error={emailCodeError} placeholder="123xxx" />
-                </div>
+                <Tooltip text="Verification code sent to Test@gmail.com and then enter verification code" show={emailCodeTooltip}>
+                  <div className="grid space-y-3 text-sm md:text-base">
+                    <label>Email Verification Code</label>
+                    <Input.Number value={emailCode} handleInput={handleEmailCodeInput} error={emailCodeError} placeholder="123xxx" onMouseEnter={useCallback(() => setEmailCodeTooltip(true), [setEmailCodeTooltip])} onMouseLeave={useCallback(() => setEmailCodeTooltip(false), [setEmailCodeTooltip])} />
+                  </div>
+                </Tooltip>
                 <div className="grid space-y-3 text-sm md:text-base">
                   <label>Phone</label>
                   <Input.Phone value={phone} areaCode={areaCode} handleSelect={handleAreaCodeInput} handleInput={handlePhoneInput} error={phoneError} hasControl />
@@ -123,7 +129,7 @@ const SignUp: NextPage = () => {
               <span className="flex justify-center">Already have account?</span>
               <Button variant="empty" color="blue" size="sm" className="h-9">Sign In</Button>
             </div>
-            <Button className="w-1/5" size="sm">Sign Up</Button>
+            <Button className="w-1/4" size="sm">Sign Up</Button>
           </div>
         </div>
       </div>
