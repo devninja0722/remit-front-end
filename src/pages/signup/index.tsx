@@ -42,12 +42,12 @@ const SignUp: NextPage = () => {
 
   const handleAreaCodeInput = (value: string) => {
     setAreaCode(value);
-    setPhoneError(!(phone === '' || RegExp(`^[0-9]{${11 - value.length}}$`).test(escapeRegExp(phone))))
+    setPhoneError(!(phone === '' || RegExp(`^[0-9]{${12 - value.length}}$`).test(escapeRegExp(phone))))
   }
 
   const handlePhoneInput = (value: string) => {
     setPhone(value)
-    setPhoneError(!(value === '' || RegExp(`^[0-9]{${11 - areaCode.length}}$`).test(escapeRegExp(value))))
+    setPhoneError(!(value === '' || RegExp(`^[0-9]{${12 - areaCode.length}}$`).test(escapeRegExp(value))))
   }
 
   const handlePhoneCodeInput = (value: string) => {
@@ -119,11 +119,11 @@ const SignUp: NextPage = () => {
             </div>
           </div>
           <div className="flex justify-between">
-            <div className="flex space-x-4 items-center text-xs md:text-sm px-2 w-1/3">
+            <div className="flex space-x-4 items-center text-xs md:text-sm px-2 w-1/2">
               <span className="flex justify-center">Already have account?</span>
               <Button variant="empty" color="blue" size="sm" className="h-9">Sign In</Button>
             </div>
-            <Button className="w-1/6" size="sm">Sign Up</Button>
+            <Button className="w-1/5" size="sm">Sign Up</Button>
           </div>
         </div>
       </div>

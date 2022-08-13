@@ -25,7 +25,7 @@ export const Input = React.memo(
     ...rest
   }: {
     value: string | number
-    areaCode: any
+    areaCode: string
     handleSelect: (input: string) => void
     handleInput: (input: string) => void
     error?: boolean
@@ -42,10 +42,10 @@ export const Input = React.memo(
       <div className='flex justify-end align-middle'>
         <Select
           id="country-select" instanceId="country-select"
-          defaultValue={areaCode}
+          defaultValue={{ value: areaCode, label: areaCode }}
           options={countryList}
           className="w-24 text-sm text-center"
-          onChange={(event) => {
+          onChange={(event: any) => {
             handleSelect(event.value)
           }}
           theme={(theme) => ({

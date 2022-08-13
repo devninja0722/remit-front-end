@@ -45,15 +45,19 @@ input[type="number"] {
   border-bottom-left-radius: 10px;
 }
 
-.css-6j8wv5-Input,
-.css-1pndypt-Input,
-.css-qc6sy-singleValue,
-.css-1gtu0rj-indicatorContainer *,
-.css-tlfecz-indicatorContainer * {
+#country-select .css-6j8wv5-Input,
+#country-select .css-1pndypt-Input,
+#country-select .css-qc6sy-singleValue,
+#country-select .css-1gtu0rj-indicatorContainer *,
+#country-select .css-tlfecz-indicatorContainer * {
   color: white !important;
 }
 
-.css-1okebmr-indicatorSeparator {
+#country-select .css-14el2xx-placeholder {
+  color: rgba(255, 255, 255, 0.8) !important;
+}
+
+#country-select .css-1okebmr-indicatorSeparator {
   background: rgb(255, 255, 255) !important;
 }
 
