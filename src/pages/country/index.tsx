@@ -34,20 +34,20 @@ const SelectCountry: NextPage = () => {
         <meta name="description" content="RemitWise" />
       </Head>
 
-      <div className="bg-cover bg-center bg-compound h-full px-8 py-6 md:px-16 md:py-12 lg:px-36 lg:py-16 transition-all">
+      <div className="h-full px-8 py-6 transition-all bg-center bg-cover bg-compound md:px-16 md:py-12 lg:px-36 lg:py-16">
         <div className="flex justify-between align-center">
-          <div className="font-poppins text-lg md:text-xl font-semibold">Logo</div>
-          <Select id="lang-select" instanceId="lang-select" options={langOptions} defaultValue={defaultLang} className="w-36 text-sm md:text-base font-semibold" />
+          <div className="text-lg font-semibold font-poppins md:text-xl">Logo</div>
+          <Select id="lang-select" instanceId="lang-select" options={langOptions} defaultValue={defaultLang} className="text-xs font-semibold w-36 md:text-sm" />
         </div>
         <div className="grid space-y-6 rounded-2.5 bg-white w-80 md:w-96 mx-auto mt-20 md:mt-16 p-8">
           <div className="grid py-2 space-y-4 md:space-y-10">
-            <div className="text-xl md:text-2xl font-semibold">Select Country</div>
+            <div className="text-xl font-semibold md:text-2xl">Select Country</div>
             <div className="grid space-y-5">
-              <div className="grid gap-5 grid-cols-1">
-                <div className="grid space-y-3 text-sm md:text-base">
+              <div className="grid grid-cols-1 gap-5">
+                <div className="grid space-y-3 text-xs md:text-sm">
                   <label>Please ensure your country of residence matches your valid ID. Your privilages could change based on the selection</label>
                 </div>
-                <div className="grid space-y-3 text-sm md:text-base">
+                <div className="grid space-y-3 text-xs md:text-sm">
                   <label className="font-semibold">Your country</label>
                   <ReactFlagsSelect
                     selected={select}
@@ -63,17 +63,17 @@ const SelectCountry: NextPage = () => {
                   />
                 </div>
               </div>
-              <div className="grid gap-5 grid-cols-1">
-                <div className="grid space-y-3 text-sm md:text-base">
+              <div className="grid grid-cols-1 gap-5">
+                <div className="grid space-y-3 text-xs md:text-sm">
                   <label className="font-bold">Requirement</label>
                   <label className="flex items-center gap-2"><Image src="/img/personal.svg" alt="personal" width={18} height={18} /> Personal information</label>
                   <label className="flex items-center gap-2"><Image src="/img/document.svg" alt="document" width={18} height={18} /> Government-issued ID</label>
                   <label className="flex items-center gap-2"><Image src="/img/facial.svg" alt="facial" width={18} height={18} /> Facial recognition</label>
                   <label className="flex items-center gap-2"><Image src="/img/time.svg" alt="time" width={18} height={18} /> Review time: 10 days</label>
                 </div>
-                <div className="grid space-y-3 text-sm md:text-base">
+                <div className="grid space-y-3 text-xs md:text-sm">
                   <label className="font-semibold">Government-issued document</label>
-                  <Select id="doc-select" instanceId="doc-select" options={docOptions} defaultValue={docOptions[0]} className="text-sm md:text-base" />
+                  <Select id="doc-select" instanceId="doc-select" options={docOptions} defaultValue={docOptions[0]} className="text-xs md:text-sm" />
                 </div>
               </div>
             </div>
