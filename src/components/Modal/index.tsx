@@ -1,7 +1,6 @@
 import { Dialog, Transition } from '@headlessui/react'
 import { classNames } from 'app/functions'
 import React, { Fragment, useEffect } from 'react'
-import { isMobile } from 'react-device-detect'
 
 interface ModalProps {
   isOpen: boolean
@@ -32,8 +31,8 @@ export default function Modal({
   initialFocusRef,
   children,
   padding = 5,
-  minWidth = 400,
-  maxWidth = 510,
+  minWidth = 360,
+  maxWidth = 420,
   className = '',
   disableBackdrop = false
 }: ModalProps) {
@@ -61,10 +60,7 @@ export default function Modal({
             >
               <div
                 className="flex justify-center transition-all transform"
-                style={isMobile ? {
-                  width: `100%`,
-                  padding: `${padding}px`
-                } : {
+                style={{
                   width: 'auto',
                   minWidth: `${minWidth}px`,
                   maxWidth: `${maxWidth}px`,
@@ -78,7 +74,7 @@ export default function Modal({
                   className ?? '',
                 )}
                 >
-                  <div className="grid w-full h-full p-6 overflow-y-hidden transition-all rounded-2.5 justify-center text-center space-y-4 pt-12" style={{ minHeight: `${minHeight}vh`, maxHeight: `${maxHeight}vh` }}>
+                  <div className="grid justify-center w-full h-full px-2 py-2 pt-8 space-y-2 overflow-y-hidden text-center transition-all rounded-2" >
                     {children}
                   </div>
                 </div>
