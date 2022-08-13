@@ -10,6 +10,8 @@
       "app/functions/*": ["./functions/*"],
       "app/hooks": ["./hooks"],
       "app/hooks/*": ["./hooks/*"],
+      "app/modals": ["./modals"],
+      "app/modals/*": ["./modals/*"],
       "app/styles": ["./styles"],
       "app/styles/*": ["./styles/*"],
     },

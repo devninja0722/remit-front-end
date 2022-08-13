@@ -5,6 +5,7 @@ import Head from "next/head"
 import Container from "app/components/Container"
 import Input from "app/components/Input"
 import Button from "app/components/Button"
+import PendingModal from "app/modals/PendingModal"
 import Image from "next/image"
 import { CheckIcon, PlusIcon, XIcon } from "@heroicons/react/solid"
 import { useDropzone } from 'react-dropzone';
@@ -65,6 +66,8 @@ const IdentifyVerification: NextPage = () => {
   ]);
 
   const [step, setStep] = useState(1)
+
+  const [modalOpen, setModalOpen] = useState(false)
 
   return (
     <Container id="identity-page" maxWidth="full">
@@ -176,8 +179,15 @@ const IdentifyVerification: NextPage = () => {
           <ul>{files}</ul>
 
           <div className="grid md:flex">
-            <Button className="w-full" size="sm" onClick={() => setStep(3)}>Continue</Button>
+            <Button className="w-full" size="sm" onClick={() => setModalOpen(true)}>Continue</Button>
           </div>
+
+          <PendingModal
+            isOpen={modalOpen}
+            onDismiss={() => setModalOpen(false)}
+            caption="Under review"
+            content="You will receive an email once verifiction complete. Estimated completed date: 2022-06-17 (UTC)"
+          />
         </div>}
       </div>
     </Container>
