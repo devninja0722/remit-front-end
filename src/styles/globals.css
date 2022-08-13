@@ -61,6 +61,21 @@ input[type="number"] {
   background: rgb(255, 255, 255) !important;
 }
 
+.ReactFlagsSelect-module_selectBtn__19wW7 {
+  padding: 4px 8px !important;
+}
+
+.ReactFlagsSelect-module_selectValue__152eS,
+.ReactFlagsSelect-module_selectBtn__19wW7
+  .ReactFlagsSelect-module_selectOption__3pcgW {
+  padding: 0px 4px !important;
+}
+
+.ReactFlagsSelect-module_selectFlag__2q5gC svg {
+  width: 1.2em !important;
+  height: 1.2em !important;
+}
+
 @media (prefers-color-scheme: dark) {
   html {
     color-scheme: dark;
