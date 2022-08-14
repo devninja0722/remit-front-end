@@ -14,13 +14,16 @@
     "@headlessui/react": "^1.6.6",
     "@heroicons/react": "^1.0.6",
     "@popperjs/core": "^2.11.6",
+    "@reduxjs/toolkit": "^1.8.4",
     "next": "12.2.4",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-dropzone": "^14.2.2",
     "react-flags-select": "^2.2.3",
     "react-popper": "^2.3.0",
-    "react-select": "^5.4.0"
+    "react-redux": "^8.0.2",
+    "react-select": "^5.4.0",
+    "redux-persist": "^6.0.0"
   },
   "devDependencies": {
     "@types/node": "18.7.1",

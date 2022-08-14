@@ -76,6 +76,17 @@ input[type="number"] {
   height: 1.2em !important;
 }
 
+.dropdown-menu:before {
+  float: right;
+  content: "";
+  border-bottom: 8px solid #0595f880;
+  border-left: 8px solid transparent;
+  border-right: 8px solid transparent;
+  position: absolute;
+  left: 64px;
+  top: -10px;
+}
+
 @media (prefers-color-scheme: dark) {
   html {
     color-scheme: dark;
