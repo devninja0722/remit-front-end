@@ -5,6 +5,7 @@ import { BANKS, Accounts } from "app/constants/banks"
 import { useState } from "react"
 import Select, { components } from "react-select"
 import Image from "next/image"
+import { ExclamationCircleIcon } from "@heroicons/react/outline"
 
 var bankList: any[] = []
 Accounts.map((item, i) => bankList.push({
@@ -69,6 +70,15 @@ const StepOne = () => {
               />
             </div>
           </div>
+          <div className="flex justify-between items-start">
+            <p className="font-semibold">Exchange Rate</p>
+            <div>
+              <p className="font-bold text-right">1 CNY = 0,2000 SGD</p>
+              <p className="text-sm text-right">Locked-in 1 hour</p>
+            </div>
+          </div>
+          <hr className="border-1 border-stroke" />
+          <div className="flex text-sm items-center"><ExclamationCircleIcon width={12} height={12} className="mr-2" /> Bank account name must be match the platform authentication name</div>
         </div>
         <div className="flex border-t border-stroke justify-end px-8 py-6">
           <Button variant="filled" color="dark-blue" className="!px-8">Continue</Button>
