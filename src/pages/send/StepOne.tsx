@@ -24,7 +24,7 @@ const StepOne = () => {
   return (
     <div className="flex flex-col gap-4 lg:gap-6 h-full">
       <p className="text-md lg:text-lg font-bold">Transfer Amount</p>
-      <div className="border border-stroke rounded">
+      <div className="border-1 border-stroke rounded">
         <div className="grid p-4 lg:p-6 gap-4 lg:gap-6 text-primary">
           <div>
             <p className="font-semibold">Send</p>
@@ -77,10 +77,10 @@ const StepOne = () => {
               <p className="text-xs lg:text-sm text-right">Locked-in 1 hour</p>
             </div>
           </div>
-          <hr className="border-1 border-stroke" />
+          <hr className="border-t-1 border-stroke" />
           <div className="flex text-xs lg:text-sm items-center"><ExclamationCircleIcon className="mr-2 w-4 h-4 text-dark-blue" /> Bank account name must be match the platform authentication name</div>
         </div>
-        <div className="flex border-t border-stroke justify-end px-8 py-6">
+        <div className="flex border-t-1 border-stroke justify-end px-8 py-6">
           <Button variant="filled" color="dark-blue" size="sm" className="!px-8">Continue</Button>
         </div>
       </div>

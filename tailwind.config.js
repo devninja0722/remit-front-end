@@ -9,6 +9,7 @@ module.exports = {
   theme: {
     extend: {
       borderWidth: {
+        1: "1px",
         1.5: "6px",
         2.5: "10px",
       },

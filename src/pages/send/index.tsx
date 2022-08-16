@@ -45,14 +45,21 @@ const SendMoney = () => {
               )}
             </div>
           </div>
-          <hr className="hidden lg:grid w-full border-stroke my-6" />
+          <hr className="hidden lg:grid w-full border-t-1 border-stroke my-6" />
           <div className="hidden lg:grid uppercase font-semibold">
             <p className="text-sm text-disabled">24 Hour Limit</p>
             <p className="text-base text-primary">$ 1,000,000 OF $ 1,000,000 REMAINING</p>
           </div>
         </div>
-        <div className="bg-white w-full h-auto p-6 p-8 lg:p-10">
+        <div className="bg-white w-full p-6 md:p-8 lg:p-10">
           {step === 1 && <StepOne />}
+        </div>
+        <div className="grid lg:hidden w-full px-6 md:px-8">
+          <hr className="grid lg:hidden w-full border-t-1 border-stroke mb-4" />
+          <div className="gridlg:hidden uppercase font-semibold">
+            <p className="text-sm text-disabled">24 Hour Limit</p>
+            <p className="text-sm md:text-base text-primary">$ 1,000,000 OF $ 1,000,000 REMAINING</p>
+          </div>
         </div>
       </div>
     </Container>
