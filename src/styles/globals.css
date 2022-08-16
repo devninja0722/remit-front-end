@@ -35,8 +35,8 @@ input[type="number"] {
   /* Firefox */
 }
 
-#country-select .css-x19aeh-control,
-#country-select .css-fl6yov-control {
+.select-input .css-x19aeh-control,
+.select-input .css-fl6yov-control {
   border: none !important;
   box-shadow: none !important;
   color: white;
@@ -45,19 +45,26 @@ input[type="number"] {
   border-bottom-left-radius: 10px;
 }
 
-#country-select .css-6j8wv5-Input,
-#country-select .css-1pndypt-Input,
-#country-select .css-qc6sy-singleValue,
-#country-select .css-1gtu0rj-indicatorContainer *,
-#country-select .css-tlfecz-indicatorContainer * {
+.select-input.dark-blue .css-x19aeh-control,
+.select-input.dark-blue .css-fl6yov-control {
+  background: #1e4fff;
+  border-top-left-radius: 8px;
+  border-bottom-left-radius: 8px;
+}
+
+.select-input .css-6j8wv5-Input,
+.select-input .css-1pndypt-Input,
+.select-input .css-qc6sy-singleValue,
+.select-input .css-1gtu0rj-indicatorContainer *,
+.select-input .css-tlfecz-indicatorContainer * {
   color: white !important;
 }
 
-#country-select .css-14el2xx-placeholder {
+.select-input .css-14el2xx-placeholder {
   color: rgba(255, 255, 255, 0.8) !important;
 }
 
-#country-select .css-1okebmr-indicatorSeparator {
+.select-input .css-1okebmr-indicatorSeparator {
   background: rgb(255, 255, 255) !important;
 }
 

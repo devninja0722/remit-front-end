@@ -4,7 +4,7 @@ import { classNames } from 'app/functions'
 import Dots from '../Dots'
 import Loader from '../Loader'
 
-export type ButtonColor = 'red' | 'blue'
+export type ButtonColor = 'red' | 'blue' | 'dark-blue'
 export type ButtonSize = 'xs' | 'sm' | 'lg' | 'default' | 'none'
 export type ButtonVariant = 'outlined' | 'filled' | 'empty' | 'link'
 
@@ -24,8 +24,9 @@ const SIZE = {
 
 const FILLED = {
   default: 'bg-transparent opacity-90 hover:opacity-100',
-  red: 'bg-red bg-opacity-90 w-full text-white hover:bg-opacity-100 disabled:bg-opacity-40',
-  blue: 'bg-blue bg-opacity-90 w-full text-white hover:bg-opacity-100 disabled:bg-opacity-40',
+  red: 'bg-red bg-opacity-90 text-white hover:bg-opacity-100 disabled:bg-opacity-40',
+  blue: 'bg-blue bg-opacity-90 text-white hover:bg-opacity-100 disabled:bg-opacity-40',
+  'dark-blue': 'bg-dark-blue bg-opacity-90 text-white hover:bg-opacity-100 disabled:bg-opacity-40',
 }
 
 const OUTLINED = {

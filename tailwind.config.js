@@ -32,6 +32,7 @@ module.exports = {
         "light-gray": "#CFCDCD",
         stroke: "#ECECEC",
         disabled: "#697586",
+        gray: "#EBEFFF",
       },
       fontFamily: {
         montserrat: [

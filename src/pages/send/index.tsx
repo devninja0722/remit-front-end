@@ -4,9 +4,10 @@ import { SEND_STEPS } from "app/constants/steps"
 import { classNames } from "app/functions"
 import Head from "next/head"
 import { useEffect, useState } from "react"
+import StepOne from "./StepOne"
 
 const SendMoney = () => {
-  const [step, setStep] = useState(4)
+  const [step, setStep] = useState(1)
   const [wndWidth, setWndWidth] = useState(innerWidth)
 
   useEffect(() => {
@@ -24,8 +25,8 @@ const SendMoney = () => {
         <title key="title">Send Money | RemitWise</title>
         <meta key="description" name="description" content="Send Money RemitWise" />
       </Head>
-      <div className="grid lg:flex w-full h-screen bg-white pt-12 lg:pt-20">
-        <div className="lg:min-w-80 max-h-40 lg:max-h-fit border-b lg:border-r border-stroke bg-white pt-10 h-auto overflow-hidden">
+      <div className="flex-col lg:flex lg:flex-row w-full h-screen bg-white pt-12 lg:pt-20">
+        <div className="lg:min-w-80 h-40 lg:h-full border-b lg:border-r border-stroke bg-white pt-10 overflow-hidden">
           <div className="lg:translate-x-0" style={{ translate: wndWidth >= 1024 ? 0 : `calc(${wndWidth / 2}px - ${9 + (step - 1) * 19.5}rem` }}>
             <hr className="w-[58.5rem] lg:w-60 border-stroke lg:rotate-90 origin-left translate-x-36 lg:translate-x-6 translate-y-6" />
             <div className="flex lg:grid gap-6">
@@ -50,8 +51,8 @@ const SendMoney = () => {
             <p className="text-base text-primary">$ 1,000,000 OF $ 1,000,000 REMAINING</p>
           </div>
         </div>
-        <div className="bg-white w-full h-auto">
-
+        <div className="bg-white w-full h-auto p-10">
+          {step === 1 && <StepOne />}
         </div>
       </div>
     </Container>

@@ -2,20 +2,19 @@ import React from 'react'
 import Select, { StylesConfig } from 'react-select';
 import Button from 'app/components/Button'
 import { classNames, escapeRegExp } from 'app/functions'
-import { COUNTRIES } from 'app/constants/countries';
-
+import { CURRENCIES } from 'app/constants/currencies';
 const defaultClassName = 'bg-white'
 
-var countryList: any[] = []
-COUNTRIES.map((item, i) => countryList.push({
-  value: item.dial_code,
-  label: item.dial_code,
+var currencyList: any[] = []
+CURRENCIES.map((item, i) => currencyList.push({
+  value: item,
+  label: item,
 }))
 
 export const Input = React.memo(
   ({
     value,
-    areaCode,
+    currencyCode,
     handleSelect,
     handleInput,
     error,
@@ -25,7 +24,7 @@ export const Input = React.memo(
     ...rest
   }: {
     value: string | number
-    areaCode: string
+    currencyCode: string
     handleSelect: (input: string) => void
     handleInput: (input: string) => void
     error?: boolean
@@ -41,10 +40,10 @@ export const Input = React.memo(
     return (
       <div className='flex justify-end align-middle'>
         <Select
-          id="country-select" instanceId="country-select"
-          defaultValue={{ value: areaCode, label: areaCode }}
-          options={countryList}
-          className="select-input w-24 text-sm text-center"
+          id="currency-select" instanceId="currency-select"
+          defaultValue={{ value: currencyCode, label: currencyCode }}
+          options={currencyList}
+          className="select-input dark-blue w-24 text-sm text-center"
           onChange={(event: any) => {
             handleSelect(event.value)
           }}
@@ -70,12 +69,12 @@ export const Input = React.memo(
           autoCorrect="off"
           // text-specific options
           type="number"
-          pattern="[0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9]$"
-          placeholder={placeholder || 'Enter your code'}
+          pattern="[0-9]+.[0-9][0-9]$"
+          placeholder={placeholder || 'Enter your amount'}
           spellCheck="false"
           className={classNames(
-            'relative text-base outline-none px-4 w-32 h-[38px] border flex-auto overflow-hidden overflow-ellipsis placeholder-light-gray focus:placeholder-dark-gray rounded-r-1 transition-all ease-in',
-            className, error ? 'border-red focus:border-red' : 'border-stroke focus:border-blue'
+            'relative text-base outline-none px-4 w-32 h-[38px] border flex-auto overflow-hidden overflow-ellipsis placeholder-light-gray focus:placeholder-dark-gray rounded-r-md transition-all ease-in',
+            className, error ? 'border-red focus:border-red' : 'border-stroke focus:border-dark-blue'
           )}
         />
         {hasControl && <Button variant="link" size="sm" className="absolute bg-white m-[4px] h-[30px] text-blue/90 hover:text-blue border-l rounded-none">Send</Button>}
@@ -84,7 +83,7 @@ export const Input = React.memo(
   }
 )
 
-Input.displayName = 'PhoneInput'
+Input.displayName = 'CurrencyInput'
 
 export default Input
 
