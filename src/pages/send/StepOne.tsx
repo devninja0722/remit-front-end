@@ -22,13 +22,13 @@ const StepOne = () => {
   const [receiveAccount, setReceiveAccount] = useState(bankList[0])
 
   return (
-    <div className="flex flex-col gap-6 h-full">
-      <p className="text-lg font-bold">Transfer Amount</p>
+    <div className="flex flex-col gap-4 lg:gap-6 h-full">
+      <p className="text-md lg:text-lg font-bold">Transfer Amount</p>
       <div className="border border-stroke rounded">
-        <div className="grid px-6 py-6 gap-6 text-primary">
+        <div className="grid p-4 lg:p-6 gap-4 lg:gap-6 text-primary">
           <div>
             <p className="font-semibold">Send</p>
-            <div className="grid gap-4 bg-gray rounded mt-4 p-6">
+            <div className="grid gap-2 lg:gap-4 bg-gray rounded mt-4 p-3 lg:p-6">
               <Input.Currency value={sendAmount} currencyCode={sendCurrency} handleInput={setSendAmount} handleSelect={setSendCurrency} fontSize="16" />
               <Select
                 id="send-account" instanceId="send-account"
@@ -51,7 +51,7 @@ const StepOne = () => {
           </div>
           <div>
             <p className="font-semibold">Received</p>
-            <div className="grid gap-4 bg-gray rounded mt-4 p-6">
+            <div className="grid gap-2 lg:gap-4 bg-gray rounded mt-4 p-3 lg:p-6">
               <Input.Currency value={receiveAmount} currencyCode={receiveCurrency} handleInput={setReceiveAmount} handleSelect={setReceiveCurrency} fontSize="16" />
               <Select
                 id="receive-account" instanceId="receive-account"
@@ -70,18 +70,18 @@ const StepOne = () => {
               />
             </div>
           </div>
-          <div className="flex justify-between items-start">
+          <div className="flex text-sm lg:text-base justify-between items-start">
             <p className="font-semibold">Exchange Rate</p>
             <div>
               <p className="font-bold text-right">1 CNY = 0,2000 SGD</p>
-              <p className="text-sm text-right">Locked-in 1 hour</p>
+              <p className="text-xs lg:text-sm text-right">Locked-in 1 hour</p>
             </div>
           </div>
           <hr className="border-1 border-stroke" />
-          <div className="flex text-sm items-center"><ExclamationCircleIcon width={12} height={12} className="mr-2" /> Bank account name must be match the platform authentication name</div>
+          <div className="flex text-xs lg:text-sm items-center"><ExclamationCircleIcon className="mr-2 w-4 h-4 text-dark-blue" /> Bank account name must be match the platform authentication name</div>
         </div>
         <div className="flex border-t border-stroke justify-end px-8 py-6">
-          <Button variant="filled" color="dark-blue" className="!px-8">Continue</Button>
+          <Button variant="filled" color="dark-blue" size="sm" className="!px-8">Continue</Button>
         </div>
       </div>
     </div>
