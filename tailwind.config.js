@@ -27,9 +27,11 @@ module.exports = {
         "dark-blue": "#1E4FFF",
         red: "#E93B04",
         success: "#00B812",
+        "light-green": "#DFFFE2",
         "dark-gray": "#BEBCBC",
         "light-gray": "#CFCDCD",
         stroke: "#ECECEC",
+        disabled: "#697586",
       },
       fontFamily: {
         montserrat: [
@@ -67,6 +69,7 @@ module.exports = {
         ],
       },
       minWidth: {
+        80: "360px",
         96: "384px",
       },
     },
