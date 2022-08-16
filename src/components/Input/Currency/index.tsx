@@ -1,5 +1,5 @@
 import React from 'react'
-import Select, { StylesConfig } from 'react-select';
+import Select, { components, StylesConfig } from 'react-select';
 import Button from 'app/components/Button'
 import { classNames, escapeRegExp } from 'app/functions'
 import { CURRENCIES } from 'app/constants/currencies';
@@ -56,6 +56,13 @@ export const Input = React.memo(
               primary: '#0595f8',
             },
           })}
+          components={{
+            Control: ({ children, ...rest }) => (
+              <components.Control {...rest} className="py-1">
+                {children}
+              </components.Control>
+            )
+          }}
         />
         <input
           {...rest}
@@ -73,7 +80,7 @@ export const Input = React.memo(
           placeholder={placeholder || 'Enter your amount'}
           spellCheck="false"
           className={classNames(
-            'relative text-base outline-none px-4 w-32 h-[38px] border flex-auto overflow-hidden overflow-ellipsis placeholder-light-gray focus:placeholder-dark-gray rounded-r-md transition-all ease-in',
+            'relative text-base outline-none px-4 py-1 w-32 border flex-auto overflow-hidden overflow-ellipsis placeholder-light-gray focus:placeholder-dark-gray rounded-r-md transition-all ease-in',
             className, error ? 'border-red focus:border-red' : 'border-stroke focus:border-dark-blue'
           )}
         />
