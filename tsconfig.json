@@ -6,6 +6,8 @@
       "app/components/*": ["./components/*"],
       "app/constants": ["./constants"],
       "app/constants/*": ["./constants/*"],
+      "app/features": ["./features"],
+      "app/features/*": ["./features/*"],
       "app/functions": ["./functions"],
       "app/functions/*": ["./functions/*"],
       "app/hooks": ["./hooks"],
