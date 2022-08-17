@@ -69,12 +69,12 @@ export default function Modal({
               >
                 {/* <div className="w-full p-px rounded bg-gradient-to-r from-blue to-red"> */}
                 <div className={classNames(
-                  "w-full p-2 rounded-2.5 bg-white transition-all",
+                  "w-full p-0 rounded-2.5 bg-white transition-all",
                   "text-primary",
                   className ?? '',
                 )}
                 >
-                  <div className="grid justify-center w-full h-full px-2 py-2 pt-8 space-y-2 overflow-y-hidden text-center transition-all rounded-2" >
+                  <div className="flex flex-col justify-center w-full h-full p-0 overflow-y-hidden transition-all rounded-2" >
                     {children}
                   </div>
                 </div>

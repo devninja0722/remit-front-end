@@ -6,6 +6,7 @@ import { useState } from "react"
 import Select, { components } from "react-select"
 import Image from "next/image"
 import { ExclamationCircleIcon } from "@heroicons/react/outline"
+import BankAccountModal from "app/modals/BankAccountModal"
 
 var bankList: any[] = []
 Accounts.map((item, i) => bankList.push({
@@ -13,13 +14,15 @@ Accounts.map((item, i) => bankList.push({
   label: `${item.name} - ${item.bank} - ${item.currency} - ${item.id}`,
 }))
 
-const StepOne = () => {
+const StepOne = ({ handleSuccess }: any) => {
   const [sendAmount, setSendAmount] = useState("0.00")
   const [sendCurrency, setSendCurrency] = useState(CURRENCIES[0])
   const [sendAccount, setSendAccount] = useState(bankList[0])
   const [receiveAmount, setReceiveAmount] = useState("0.00")
   const [receiveCurrency, setReceiveCurrency] = useState(CURRENCIES[0])
   const [receiveAccount, setReceiveAccount] = useState(bankList[0])
+
+  const [modalOpen, setModalOpen] = useState(false)
 
   return (
     <div className="flex flex-col gap-4 lg:gap-6 h-full">
@@ -81,9 +84,16 @@ const StepOne = () => {
           <div className="flex text-xs lg:text-sm items-center"><ExclamationCircleIcon className="mr-2 w-4 h-4 text-dark-blue" /> Bank account name must be match the platform authentication name</div>
         </div>
         <div className="flex border-t-1 border-stroke justify-end px-8 py-6">
-          <Button variant="filled" color="dark-blue" size="sm" className="!px-8">Continue</Button>
+          <Button variant="filled" color="dark-blue" size="sm" className="!px-8" onClick={() => setModalOpen(true)}>Continue</Button>
         </div>
       </div>
+
+      <BankAccountModal
+        isOpen={modalOpen}
+        onSuccess={handleSuccess}
+        onDismiss={() => setModalOpen(false)}
+        caption="Create new bank account"
+      />
     </div>
   )
 }

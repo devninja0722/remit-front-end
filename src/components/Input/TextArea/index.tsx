@@ -39,7 +39,7 @@ export const Input = React.memo(
         placeholder={placeholder || 'Enter your text'}
         spellCheck="false"
         className={classNames(
-          'relative text-base outline-none px-3 py-2 h-20 border flex-auto overflow-hidden overflow-ellipsis placeholder-light-gray focus:placeholder-dark-gray rounded-1 transition-all ease-in',
+          'relative outline-none px-3 py-2 h-20 border flex-auto overflow-hidden overflow-ellipsis placeholder-light-gray focus:placeholder-dark-gray rounded-1 transition-all ease-in',
           className, error ? 'border-red focus:border-red' : 'border-stroke focus:border-blue'
         )}
       />

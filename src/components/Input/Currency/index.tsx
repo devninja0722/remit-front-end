@@ -43,7 +43,7 @@ export const Input = React.memo(
           id="currency-select" instanceId="currency-select"
           defaultValue={{ value: currencyCode, label: currencyCode }}
           options={currencyList}
-          className="select-input dark-blue w-24 text-sm text-center"
+          className="select-input dark-blue w-24 text-center"
           onChange={(event: any) => {
             handleSelect(event.value)
           }}
@@ -80,7 +80,7 @@ export const Input = React.memo(
           placeholder={placeholder || 'Enter your amount'}
           spellCheck="false"
           className={classNames(
-            'relative text-base outline-none px-4 py-1 w-32 border flex-auto overflow-hidden overflow-ellipsis placeholder-light-gray focus:placeholder-dark-gray rounded-r-md transition-all ease-in',
+            'relative outline-none px-4 py-1 w-32 border flex-auto overflow-hidden overflow-ellipsis placeholder-light-gray focus:placeholder-dark-gray rounded-r-md transition-all ease-in',
             className, error ? 'border-red focus:border-red' : 'border-stroke focus:border-dark-blue'
           )}
         />

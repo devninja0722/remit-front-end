@@ -19,7 +19,7 @@ const AppBar = () => {
   const [drawerOpen, setDrawerOpen] = useState(false)
 
   return (
-    <header className={classNames("z-[10001] flex-shrink-0 w-full text-sm md:text-base font-montserrat border-b border-stroke fixed", ["signin", "signup", "country", "identity"].includes(routeTag) ? "!hidden" : "")}>
+    <header className={classNames("z-10 flex-shrink-0 w-full text-sm md:text-base font-montserrat border-b border-stroke fixed", ["signin", "signup", "country", "identity"].includes(routeTag) ? "!hidden" : "")}>
       <Popover as="nav" className="z-10 w-full bg-transparent">
         <div className="px-8 mx-0.5 sm:px-16 lg:px-24 py-4 bg-white/50 backdrop-blur-lg">
           <div className="flex items-center justify-between">

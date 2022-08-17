@@ -74,7 +74,7 @@ export const Input = React.memo(
           placeholder={placeholder || 'Enter your code'}
           spellCheck="false"
           className={classNames(
-            'relative text-base outline-none px-4 w-32 h-[38px] border flex-auto overflow-hidden overflow-ellipsis placeholder-light-gray focus:placeholder-dark-gray rounded-r-1 transition-all ease-in',
+            'relative outline-none px-4 w-32 h-[38px] border flex-auto overflow-hidden overflow-ellipsis placeholder-light-gray focus:placeholder-dark-gray rounded-r-1 transition-all ease-in',
             className, error ? 'border-red focus:border-red' : 'border-stroke focus:border-blue'
           )}
         />

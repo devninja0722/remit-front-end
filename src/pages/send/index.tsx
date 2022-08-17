@@ -52,7 +52,7 @@ const SendMoney = () => {
           </div>
         </div>
         <div className="bg-white w-full p-6 md:p-8 lg:p-10">
-          {step === 1 && <StepOne />}
+          {step === 1 && <StepOne handleSuccess={() => setStep(2)} />}
         </div>
         <div className="grid lg:hidden w-full px-6 md:px-8">
           <hr className="grid lg:hidden w-full border-t-1 border-stroke mb-4" />
