@@ -3,8 +3,9 @@ const plugin = require("tailwindcss/plugin");
 
 module.exports = {
   content: [
-    "./src/pages/**/*.{js,ts,jsx,tsx}",
     "./src/components/**/*.{js,ts,jsx,tsx}",
+    "./src/features/**/*.{js,ts,jsx,tsx}",
+    "./src/pages/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
     extend: {
@@ -27,6 +28,7 @@ module.exports = {
         blue: "#0595F8",
         "dark-blue": "#1E4FFF",
         red: "#E93B04",
+        warning: "#F1921B",
         success: "#00B812",
         "light-green": "#DFFFE2",
         "dark-gray": "#BEBCBC",
@@ -34,6 +36,7 @@ module.exports = {
         stroke: "#ECECEC",
         disabled: "#697586",
         gray: "#EBEFFF",
+        ...defaultTheme.colors,
       },
       fontFamily: {
         montserrat: [
@@ -71,6 +74,7 @@ module.exports = {
         ],
       },
       maxWidth: {
+        24: "96px",
         40: "160px",
       },
       minWidth: {
