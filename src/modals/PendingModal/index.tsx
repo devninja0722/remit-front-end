@@ -19,8 +19,8 @@ const PendingModal = ({
 }: PendingModalProps) => {
   return (
     <Modal isOpen={isOpen} onDismiss={onDismiss} maxHeight={75} maxWidth={20}>
-      <div className="grid p-4 pt-8 gap-2 text-center">
-        <Image src="/img/pending.svg" alt="pending" width={42} height={56} />
+      <div className="grid p-4 gap-2 text-center">
+        <div className="mt-4" ><Image src="/img/pending.svg" alt="pending" width={42} height={56} /></div>
         <div className="font-bold text-md font-montserrat">{caption}</div>
         <div className="text-sm font-montserrat">{content}</div>
         <Button size="sm" onClick={onDismiss} className="font-montserrat">Done</Button>

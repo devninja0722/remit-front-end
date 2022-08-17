@@ -80,6 +80,7 @@ module.exports = {
         96: "384px",
       },
     },
+    ...defaultTheme,
   },
   plugins: [],
 };

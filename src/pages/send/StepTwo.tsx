@@ -4,7 +4,7 @@ import { useCallback, useEffect, useMemo, useState } from "react"
 import { useDropzone } from "react-dropzone"
 import { classNames } from "app/functions"
 import { XIcon } from "@heroicons/react/solid"
-
+import PendingModal from "app/modals/PendingModal"
 
 const baseStyle = {
   flex: 1,
@@ -27,6 +27,7 @@ const focusedStyle = {
 
 const StepTwo = ({ handleMove }: any) => {
   const [modalOpen, setModalOpen] = useState(false)
+  const [reviewed, setReviewed] = useState(false)
 
   const {
     getRootProps,
@@ -76,11 +77,19 @@ const StepTwo = ({ handleMove }: any) => {
     ...(isFocused ? focusedStyle : {})
   }), [isFocused]);
 
+  const handleContinue = () => {
+    if (reviewed) handleMove(3)
+    else {
+      setModalOpen(true)
+      setReviewed(true)
+    }
+  }
+
   return (
     <div className="flex flex-col gap-4 lg:gap-6 h-full">
       <p className="text-md lg:text-lg font-bold">Bank statements</p>
       <div className="border-1 border-stroke rounded">
-        <div className="grid px-2 py-4 lg:px-2 lg:py-6 gap-4 lg:gap-6 text-primary">
+        <div className="grid p-4 lg:p-6 gap-4 lg:gap-6 text-primary">
           <div className="flex flex-col lg:flex-row space-x-0 space-y-4 lg:space-x-8 lg:space-y-0">
             <div {...getRootProps({ style })}>
               <input {...getInputProps()} />
@@ -101,9 +110,10 @@ const StepTwo = ({ handleMove }: any) => {
         </div>
         <div className="flex border-t-1 border-stroke justify-between px-8 py-6">
           <Button variant="outlined" color="blue" size="sm" className="!px-8" onClick={() => handleMove(1)}>Back</Button>
-          <Button variant="filled" color="blue" size="sm" className="!px-8" onClick={() => handleMove(3)}>Continue</Button>
+          <Button variant="filled" color="blue" size="sm" className="!px-8" onClick={handleContinue}>Continue</Button>
         </div>
       </div>
+      <PendingModal caption="Under review" content="Your bank statement is being reviewed please do not close this page" onDismiss={() => setModalOpen(false)} isOpen={modalOpen} />
     </div>
   )
 }
