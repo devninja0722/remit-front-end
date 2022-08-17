@@ -5,6 +5,7 @@ import { classNames } from "app/functions"
 import Head from "next/head"
 import { useEffect, useState } from "react"
 import StepOne from "./StepOne"
+import StepThree from "./StepThree"
 import StepTwo from "./StepTwo"
 
 const SendMoney = () => {
@@ -19,6 +20,11 @@ const SendMoney = () => {
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
   }, []);
+
+  const rateStatus = <>
+    <p className="text-sm text-disabled">24 Hour Limit</p>
+    <p className="text-sm md:text-base text-primary">$ 1,000,000 OF $ 1,000,000 REMAINING</p>
+  </>
 
   return (
     <Container id="send-page" className="!border-0" maxWidth="7xl">
@@ -47,21 +53,16 @@ const SendMoney = () => {
             </div>
           </div>
           <hr className="hidden lg:grid w-full border-t-1 border-stroke my-6" />
-          <div className="hidden lg:grid uppercase font-semibold">
-            <p className="text-sm text-disabled">24 Hour Limit</p>
-            <p className="text-base text-primary">$ 1,000,000 OF $ 1,000,000 REMAINING</p>
-          </div>
+          <div className="hidden lg:grid uppercase font-semibold">{rateStatus}</div>
         </div>
         <div className="bg-white w-full p-6 md:p-8 lg:p-10">
           {step === 1 && <StepOne handleMove={setStep} />}
           {step === 2 && <StepTwo handleMove={setStep} />}
+          {step === 3 && <StepThree handleMove={setStep} />}
         </div>
         <div className="grid lg:hidden w-full px-6 md:px-8">
           <hr className="grid lg:hidden w-full border-t-1 border-stroke mb-4" />
-          <div className="gridlg:hidden uppercase font-semibold">
-            <p className="text-sm text-disabled">24 Hour Limit</p>
-            <p className="text-sm md:text-base text-primary">$ 1,000,000 OF $ 1,000,000 REMAINING</p>
-          </div>
+          <div className="grid lg:hidden uppercase font-semibold">{rateStatus}</div>
         </div>
       </div>
     </Container>
