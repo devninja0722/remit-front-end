@@ -1,14 +1,16 @@
-import React, { useCallback, useEffect, useState } from 'react'
+import React, { useState, useMemo } from 'react'
 import Modal from 'app/components/Modal'
 import Button from 'app/components/Button'
 import ReactFlagsSelect from "react-flags-select"
 import Select, { components } from 'react-select'
-import { XIcon } from '@heroicons/react/solid'
+import { PlusIcon, XIcon } from '@heroicons/react/solid'
 import { COUNTRIES } from 'app/constants/countries'
 import { CURRENCIES } from 'app/constants/currencies'
 import { Accounts } from 'app/constants/banks'
+import { DOCU_TYPES } from 'app/constants/doctypes'
 import Input from 'app/components/Input'
 import { escapeRegExp } from 'app/functions'
+import { useDropzone } from 'react-dropzone';
 
 var countryList: any[] = []
 COUNTRIES.map((item, i) => countryList.push(item.code))
@@ -24,6 +26,32 @@ Accounts.map((item, i) => bankList.push({
   value: item.id,
   label: `${item.name} - ${item.bank} - ${item.currency} - ${item.id}`,
 }))
+
+var documentTypeList: any[] = []
+
+DOCU_TYPES.map((item) => documentTypeList.push({
+  value: item,
+  label: item,
+}))
+
+const baseStyle = {
+  flex: 1,
+  display: 'flex',
+  flexDirection: 'column',
+  alignItems: 'center',
+  borderWidth: 1,
+  borderRadius: 5,
+  borderColor: '#0595F8',
+  borderStyle: 'dashed',
+  color: '#0595F8',
+  outline: 'none',
+  cursor: 'pointer',
+  transition: 'all .24s ease-in-out'
+}
+
+const focusedStyle = {
+  backgroundColor: '#0595F833',
+}
 
 interface BankAccountModalProps {
   isOpen: boolean
@@ -56,8 +84,25 @@ const BankAccountModal = ({
   const [swiftCode, setSwiftCode] = useState("")
   const [swiftCodeError, setSwiftCodeError] = useState(false)
   const [issuingBank, setIssuingBank] = useState("")
+  const [documentType, setDocumentType] = useState(documentTypeList[0])
 
   const [ownerAddress, setOwnerAddress] = useState("")
+
+  const {
+    getRootProps,
+    getInputProps,
+    acceptedFiles,
+    isFocused,
+  } = useDropzone({ accept: { 'video/*': [] } });
+
+  const files = acceptedFiles.map((file: any, i) => <li key={i}>{file.path}</li>);
+
+  const style: any = useMemo(() => ({
+    ...baseStyle,
+    ...(isFocused ? focusedStyle : {})
+  }), [
+    isFocused
+  ]);
 
   const handleAreaCodeInput = (value: string) => {
     setAreaCode(value);
@@ -76,7 +121,7 @@ const BankAccountModal = ({
 
   const handleSwiftCodeInput = (value: string) => {
     setSwiftCode(value)
-    setSwiftCodeError(!(value === '' || /^[0-9]{4}$/.test(escapeRegExp(value))))
+    setSwiftCodeError(!(value === '' || /^[0-9]{8}$/.test(escapeRegExp(value))))
   }
 
   return (
@@ -86,8 +131,8 @@ const BankAccountModal = ({
         <Button size='sm' variant='empty' onClick={onDismiss}><XIcon width={16} height={16} className="text-red" /></Button>
       </div>
       <hr className="border-t-1 border-stroke" />
-      <div className="grid font-montserrat p-4 gap-4 text-xs md:text-sm">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-2 md:gap-4 font-semibold text-left overflow-auto" style={{ maxHeight: "640px" }}>
+      <div className="grid font-montserrat p-2 gap-4 text-xs md:text-sm">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-2 md:gap-4 font-semibold text-left p-2" style={{ maxHeight: "640px", overflow: 'auto' }}>
           <div className="grid gap-2">
             Your country
             <ReactFlagsSelect
@@ -105,7 +150,7 @@ const BankAccountModal = ({
           </div>
           <div className="grid gap-2">
             Currency
-            <div style={{ translate: "0 -3px" }}>
+            <div style={{ translate: "0 -3px", zIndex: 4 }}>
               <Select
                 id="new-currency" instanceId="new-currency"
                 defaultValue={currencySelect}
@@ -127,14 +172,16 @@ const BankAccountModal = ({
           </div>
           <div className="grid gap-2">
             <p>My account</p>
-            <Select
-              id="new-account" instanceId="new-account"
-              defaultValue={bankSelect}
-              options={bankList}
-              onChange={(event: any) => {
-                setBankSelect(event.value)
-              }}
-            />
+            <div style={{ zIndex: 3 }}>
+              <Select
+                id="new-account" instanceId="new-account"
+                defaultValue={bankSelect}
+                options={bankList}
+                onChange={(event: any) => {
+                  setBankSelect(event.value)
+                }}
+              />
+            </div>
           </div>
           <div className="grid gap-2">
             <p>Account name</p>
@@ -142,7 +189,7 @@ const BankAccountModal = ({
           </div>
           <div className="grid gap-2">
             <label>Phone</label>
-            <Input.Phone value={phone} areaCode={areaCode} handleSelect={handleAreaCodeInput} handleInput={handlePhoneInput} error={phoneError} />
+            <div style={{ zIndex: 2 }}><Input.Phone value={phone} areaCode={areaCode} handleSelect={handleAreaCodeInput} handleInput={handlePhoneInput} error={phoneError} /></div>
           </div>
           <div className="grid gap-2">
             <p>Relationship of application</p>
@@ -163,6 +210,27 @@ const BankAccountModal = ({
           <div className="grid gap-2">
             <p>Issuing bank(if applicable)</p>
             <Input.Text value={issuingBank} handleInput={setIssuingBank} placeholder="Bank name" />
+          </div>
+          <div className="grid gap-2">
+            <p>Type of document</p>
+            <div style={{ translate: "0 -5px", zIndex: 1 }}>
+              <Select
+                id="document-type" instanceId="document-type"
+                defaultValue={documentType}
+                options={documentTypeList}
+                onChange={(event: any) => {
+                  setDocumentType(event.value)
+                }}
+              />
+            </div>
+          </div>
+          <div className="grid gap-2">
+            <p>Upload document</p>
+            <div {...getRootProps({ style })}>
+              <input {...getInputProps()} />
+              <div className="flex items-center space-x-2 h-[38px] text-xs md:text-sm"><PlusIcon className="text-white bg-blue rounded" width={14} /><p>Choose file</p></div>
+            </div>
+            <ul>{files}</ul>
           </div>
           <div className="grid col-span-1 space-y-3 text-xs md:text-sm md:col-span-2">
             <label>Account owner address</label>
