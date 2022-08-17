@@ -5,6 +5,7 @@ import { classNames } from "app/functions"
 import Head from "next/head"
 import { useEffect, useState } from "react"
 import StepOne from "./StepOne"
+import StepTwo from "./StepTwo"
 
 const SendMoney = () => {
   const [step, setStep] = useState(1)
@@ -52,7 +53,8 @@ const SendMoney = () => {
           </div>
         </div>
         <div className="bg-white w-full p-6 md:p-8 lg:p-10">
-          {step === 1 && <StepOne handleSuccess={() => setStep(2)} />}
+          {step === 1 && <StepOne handleMove={setStep} />}
+          {step === 2 && <StepTwo handleMove={setStep} />}
         </div>
         <div className="grid lg:hidden w-full px-6 md:px-8">
           <hr className="grid lg:hidden w-full border-t-1 border-stroke mb-4" />

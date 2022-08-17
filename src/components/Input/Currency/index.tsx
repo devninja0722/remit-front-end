@@ -43,7 +43,7 @@ export const Input = React.memo(
           id="currency-select" instanceId="currency-select"
           defaultValue={{ value: currencyCode, label: currencyCode }}
           options={currencyList}
-          className="select-input dark-blue w-24 text-center"
+          className="select-input w-24 text-center"
           onChange={(event: any) => {
             handleSelect(event.value)
           }}

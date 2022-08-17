@@ -70,7 +70,12 @@ module.exports = {
           },
         ],
       },
+      maxWidth: {
+        40: "160px",
+      },
       minWidth: {
+        56: "14rem",
+        60: "240px",
         80: "360px",
         96: "384px",
       },

@@ -14,7 +14,7 @@ Accounts.map((item, i) => bankList.push({
   label: `${item.name} - ${item.bank} - ${item.currency} - ${item.id}`,
 }))
 
-const StepOne = ({ handleSuccess }: any) => {
+const StepOne = ({ handleMove }: any) => {
   const [sendAmount, setSendAmount] = useState("0.00")
   const [sendCurrency, setSendCurrency] = useState(CURRENCIES[0])
   const [sendAccount, setSendAccount] = useState(bankList[0])
@@ -81,16 +81,16 @@ const StepOne = ({ handleSuccess }: any) => {
             </div>
           </div>
           <hr className="border-t-1 border-stroke" />
-          <div className="flex text-xs lg:text-sm items-center"><ExclamationCircleIcon className="mr-2 w-4 h-4 text-dark-blue" /> Bank account name must be match the platform authentication name</div>
+          <div className="flex text-xs lg:text-sm items-center"><ExclamationCircleIcon className="mr-2 w-4 h-4 text-blue" /> Bank account name must be match the platform authentication name</div>
         </div>
         <div className="flex border-t-1 border-stroke justify-end px-8 py-6">
-          <Button variant="filled" color="dark-blue" size="sm" className="!px-8" onClick={() => setModalOpen(true)}>Continue</Button>
+          <Button variant="filled" color="blue" size="sm" className="!px-8" onClick={() => setModalOpen(true)}>Continue</Button>
         </div>
       </div>
 
       <BankAccountModal
         isOpen={modalOpen}
-        onSuccess={handleSuccess}
+        onSuccess={() => handleMove(2)}
         onDismiss={() => setModalOpen(false)}
         caption="Create new bank account"
       />
