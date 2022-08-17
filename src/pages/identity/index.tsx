@@ -5,7 +5,7 @@ import Head from "next/head"
 import Container from "app/components/Container"
 import Input from "app/components/Input"
 import Button from "app/components/Button"
-import PendingModal from "app/modals/PendingModal"
+import IconModal from "app/modals/IconModal"
 import Image from "next/image"
 import { CheckIcon, PlusIcon, XIcon } from "@heroicons/react/solid"
 import { useDropzone } from 'react-dropzone';
@@ -182,9 +182,10 @@ const IdentifyVerification: NextPage = () => {
             <Button className="w-full" size="sm" onClick={() => setModalOpen(true)}>Continue</Button>
           </div>
 
-          <PendingModal
+          <IconModal
             isOpen={modalOpen}
             onDismiss={() => setModalOpen(false)}
+            icon={<Image src="/img/icon/pending.svg" alt="pending" width={42} height={56} />}
             caption="Under review"
             content="You will receive an email once verifiction complete. Estimated completed date: 2022-06-17 (UTC)"
           />

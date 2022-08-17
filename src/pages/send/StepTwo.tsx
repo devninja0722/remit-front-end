@@ -1,10 +1,11 @@
 import { CloudUploadIcon } from "@heroicons/react/outline"
 import Button from "app/components/Button"
+import Image from "next/image"
 import { useCallback, useEffect, useMemo, useState } from "react"
 import { useDropzone } from "react-dropzone"
 import { classNames } from "app/functions"
 import { XIcon } from "@heroicons/react/solid"
-import PendingModal from "app/modals/PendingModal"
+import IconModal from "app/modals/IconModal"
 
 const baseStyle = {
   flex: 1,
@@ -27,7 +28,7 @@ const focusedStyle = {
 
 const StepTwo = ({ handleMove }: any) => {
   const [modalOpen, setModalOpen] = useState(false)
-  const [reviewed, setReviewed] = useState(false)
+  const [reviewed, setReviewed] = useState(true)
 
   const {
     getRootProps,
@@ -77,14 +78,6 @@ const StepTwo = ({ handleMove }: any) => {
     ...(isFocused ? focusedStyle : {})
   }), [isFocused]);
 
-  const handleContinue = () => {
-    if (reviewed) handleMove(3)
-    else {
-      setModalOpen(true)
-      setReviewed(true)
-    }
-  }
-
   return (
     <div className="flex flex-col gap-4 lg:gap-6 h-full">
       <p className="text-md lg:text-lg font-bold">Bank statements</p>
@@ -110,10 +103,16 @@ const StepTwo = ({ handleMove }: any) => {
         </div>
         <div className="flex border-t-1 border-stroke justify-between px-8 py-6">
           <Button variant="outlined" color="blue" size="sm" className="!px-8" onClick={() => handleMove(1)}>Back</Button>
-          <Button variant="filled" color="blue" size="sm" className="!px-8" onClick={handleContinue}>Continue</Button>
+          <Button variant="filled" color="blue" size="sm" className="!px-8" onClick={() => { setReviewed(!reviewed); setModalOpen(true) }}>Continue</Button>
         </div>
       </div>
-      <PendingModal caption="Under review" content="Your bank statement is being reviewed please do not close this page" onDismiss={() => setModalOpen(false)} isOpen={modalOpen} />
+      <IconModal
+        isOpen={modalOpen}
+        onDismiss={() => { setModalOpen(false); reviewed && handleMove(3) }}
+        icon={<Image src={`/img/icon/${reviewed ? "success" : "pending"}.svg`} alt="icon" width={reviewed ? 72 : 42} height={reviewed ? 72 : 56} />}
+        caption={reviewed ? "Success" : "Under review"}
+        content={reviewed ? "Awesome your bank statement has been reviewed and approved!" : "Your bank statement is being reviewed please do not close this page"}
+      />
     </div>
   )
 }
