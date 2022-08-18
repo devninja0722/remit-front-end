@@ -1,8 +1,13 @@
 import Button from "app/components/Button"
 import { STATUS, TRANSACTIONS, BENFICIARY } from "app/constants/transactions"
 import { classNames, formatWithCurrency } from "app/functions"
+import IconModal from "app/modals/IconModal"
+import Image from "next/image"
+import { useState } from "react"
 
 const StepFour = ({ handleMove }: any) => {
+  const [modalOpen, setModalOpen] = useState(false)
+
   return (
     <div className="flex flex-col h-full gap-4 lg:gap-6">
       <div className="flex justify-between items-center font-bold text-md lg:text-lg">
@@ -66,10 +71,11 @@ const StepFour = ({ handleMove }: any) => {
           </div>
         </div>
         <div className="flex justify-between px-8 py-6 border-t-1 border-stroke">
-          <Button variant="outlined" color="blue" size="sm" className="!px-8" onClick={() => handleMove(2)}>Back</Button>
-          <Button variant="filled" color="blue" size="sm" className="!px-8" onClick={() => handleMove(4)}>Continue</Button>
+          <Button variant="outlined" color="blue" size="sm" className="!px-8" onClick={() => handleMove(3)}>Back</Button>
+          <Button variant="filled" color="blue" size="sm" className="!px-8" onClick={() => setModalOpen(true)}>Continue</Button>
         </div>
       </div>
+      <IconModal isOpen={modalOpen} onDismiss={() => setModalOpen(false)} caption="Success" content="Awesome your bank statementt has been reviewed and approved!" icon={<Image src="/img/icon/success.svg" width={72} height={72} alt="success" />} />
     </div>
   )
 }
