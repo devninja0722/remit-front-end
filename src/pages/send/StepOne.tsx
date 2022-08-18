@@ -90,7 +90,7 @@ const StepOne = ({ handleMove }: any) => {
 
       <BankAccountModal
         isOpen={modalOpen}
-        onSuccess={() => handleMove(2)}
+        onSuccess={() => handleMove(0)}
         onDismiss={() => setModalOpen(false)}
         caption="Create new bank account"
       />

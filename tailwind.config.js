@@ -5,6 +5,7 @@ module.exports = {
   content: [
     "./src/components/**/*.{js,ts,jsx,tsx}",
     "./src/features/**/*.{js,ts,jsx,tsx}",
+    "./src/modals/**/*.{js,ts,jsx,tsx}",
     "./src/pages/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
@@ -36,6 +37,8 @@ module.exports = {
         stroke: "#ECECEC",
         disabled: "#697586",
         gray: "#EBEFFF",
+        "dark-purple": "#3F4D79",
+        "gray-purple": "#CAD7FE",
         ...defaultTheme.colors,
       },
       fontFamily: {
