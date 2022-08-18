@@ -9,7 +9,7 @@ import Drawer from './Drawer'
 
 const AppBar = () => {
   const navLinkStyle =
-    'p-2 text-sm md:text-base font-normal transition-all md:p-3 whitespace-nowrap !text-primary hover:!opacity-60 outline-none'
+    'p-2 text-sm md:text-base font-semibold transition-all md:p-3 whitespace-nowrap !text-primary hover:!opacity-60 outline-none'
   const activeNavLinkStyle = '!text-blue !font-semibold hover:!opacity-100 disabled'
   const dropMenuStyle = 'flex justify-left items-center space-x-1 hover:!opacity-60 p-2 text-sm md:text-base transition-all outline-none'
   const activeDropMenuStyle = '!font-semibold hover:!opacity-100 disabled'
