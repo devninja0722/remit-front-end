@@ -35,14 +35,14 @@ const SendMoney = () => {
       </Head>
       <div className="flex-col w-full h-screen pt-6 bg-white lg:flex lg:flex-row lg:pt-20">
         <div className="pt-10 overflow-hidden bg-white border-b lg:min-w-80 h-36 lg:h-full lg:border-r border-stroke">
-          <div className="transition-all ease-in-out lg:translate-x-0" style={{ translate: wndWidth >= 1024 ? 0 : `calc(${wndWidth / 2}px - ${9 + (step - 1) * 19.5}rem` }}>
+          <div className="transition-all ease-out duration-1000 lg:translate-x-0" style={{ translate: wndWidth >= 1024 ? 0 : `calc(${wndWidth / 2}px - ${9 + (step - 1) * 19.5}rem` }}>
             <hr className="w-[58.5rem] lg:w-60 border-stroke lg:rotate-90 origin-left translate-x-36 lg:translate-x-6 translate-y-6" />
             <div className="flex gap-6 lg:grid">
               {SEND_STEPS.map((item, index) =>
                 <div key={index} className="z-10 grid">
                   <div className="grid items-center gap-2 lg:flex justify-items-center lg:gap-4">
-                    <div className={classNames("flex w-12 h-12 justify-center items-center p-2 rounded-full", step === index + 1 ? "bg-light-green" : step > index + 1 ? "bg-transparent" : "bg-transparent")}>
-                      <div className={classNames("flex w-8 h-8 justify-center items-center rounded-full font-bold", step === index + 1 ? "bg-success text-white" : step > index + 1 ? "bg-white text-success border-success border-2" : "bg-stroke text-disabled")}>
+                    <div className={classNames("flex w-12 h-12 justify-center items-center p-2 rounded-full transition-all", step === index + 1 ? "bg-light-green" : step > index + 1 ? "bg-transparent" : "bg-transparent")}>
+                      <div className={classNames("flex w-8 h-8 justify-center items-center rounded-full font-bold transition-all", step === index + 1 ? "bg-success text-white" : step > index + 1 ? "bg-white text-success border-success border-2" : "bg-stroke text-disabled")}>
                         {step <= index + 1 ? index + 1 : <CheckIcon width={18} />}
                       </div>
                     </div>
