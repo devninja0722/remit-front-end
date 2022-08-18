@@ -77,14 +77,16 @@ const RecipientView = ({ data, i }: any) => {
 
   return (
     <div className="grid">
-      <div className={classNames("flex justify-between bg-gray rounded-md px-3 lg:px-6 py-2 lg:py-4 pr-2 lg:pr-4 border-1 border-stroke transition-all", isOpen ? "rounded-b-none" : "")} onClick={() => setOpen(!isOpen)}>
-        <div className="flex items-center space-x-2 text-sm md:text-base text-blue"><p>Recipient: </p><p className="font-semibold uppercase">{data.name}</p></div>
-        <div className="flex items-center space-x-3">
-          {data.status === STATUS.pending && <p>{recipientTimer.h.toString().padStart(2, '0')} : {recipientTimer.m.toString().padStart(2, '0')} : {recipientTimer.s.toString().padStart(2, '0')}</p>
-          }
-          <p className={classNames("text-xs px-2 py-1 rounded-md max-w-24 md:max-w-lg truncate font-semibold", data.status === STATUS.success ? "text-success bg-success/20" : data.status === STATUS.pending ? "text-warning bg-warning/20" : "text-red bg-red/20")}><span>{data.status}</span></p>
-          <ChevronDownIcon width={18} height={18} className={classNames("transition-all", isOpen ? "rotate-180" : "rotate-0")} />
+      <div className={classNames("grid bg-gray rounded-md px-3 lg:px-6 py-2 lg:py-4 pr-2 lg:pr-4 border-1 border-stroke transition-all", isOpen ? "rounded-b-none" : "")} onClick={() => setOpen(!isOpen)}>
+        <div className="flex justify-between">
+          <div className="flex items-center space-x-2 text-sm md:text-base text-blue"><p>Recipient: </p><p className="font-semibold uppercase">{data.name}</p></div>
+          <div className="flex items-center space-x-3">
+            {data.status === STATUS.pending && <p className="hidden sm:flex">{recipientTimer.h.toString().padStart(2, '0')} : {recipientTimer.m.toString().padStart(2, '0')} : {recipientTimer.s.toString().padStart(2, '0')}</p>}
+            <p className={classNames("text-xs px-2 py-1 rounded-md max-w-24 md:max-w-lg truncate font-semibold", data.status === STATUS.success ? "text-success bg-success/20" : data.status === STATUS.pending ? "text-warning bg-warning/20" : "text-red bg-red/20")}><span>{data.status}</span></p>
+            <ChevronDownIcon width={18} height={18} className={classNames("transition-all", isOpen ? "rotate-180" : "rotate-0")} />
+          </div>
         </div>
+        {data.status === STATUS.pending && <p className="flex sm:hidden ml-16">{recipientTimer.h.toString().padStart(2, '0')} : {recipientTimer.m.toString().padStart(2, '0')} : {recipientTimer.s.toString().padStart(2, '0')}</p>}
       </div>
       <div className={classNames("flex-col justify-between px-6 py-4 border-1 border-y-0 border-stroke transition-all", isOpen ? "rounded-t-none flex" : "hidden")}>
         <div className="flex justify-between text-sm lg:text-base">
@@ -106,7 +108,7 @@ const RecipientView = ({ data, i }: any) => {
           <p className="font-semibold">Account owner address</p><p className="font-bold text-right">{data.ownerAddress}</p>
         </div>
         <div className="flex justify-between text-sm lg:text-base">
-          <p className="font-semibold">Transfer amount</p><p className="font-bold">{data.currency} {data.transferAmount}</p>
+          <p className="font-semibold">Transfer amount</p><p className="font-bold">{data.currency} {Number(data.transferAmount).toLocaleString('en-US')}</p>
         </div>
       </div>
       <div className={classNames("flex-col rounded-b-md border-1 border-stroke px-4 py-2", isOpen ? "flex" : "hidden")}>

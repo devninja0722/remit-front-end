@@ -4,6 +4,7 @@ import { SEND_STEPS } from "app/constants/steps"
 import { classNames } from "app/functions"
 import Head from "next/head"
 import { useEffect, useState } from "react"
+import StepFour from "./StepFour"
 import StepOne from "./StepOne"
 import StepThree from "./StepThree"
 import StepTwo from "./StepTwo"
@@ -59,6 +60,7 @@ const SendMoney = () => {
           {step === 1 && <StepOne handleMove={setStep} />}
           {step === 2 && <StepTwo handleMove={setStep} />}
           {step === 3 && <StepThree handleMove={setStep} />}
+          {step === 4 && <StepFour handleMove={setStep} />}
         </div>
         <div className="grid w-full px-6 lg:hidden md:px-8">
           <hr className="grid w-full mb-4 lg:hidden border-t-1 border-stroke" />
