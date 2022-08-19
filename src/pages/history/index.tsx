@@ -1,13 +1,13 @@
 import Button from "app/components/Button"
 import Container from "app/components/Container"
 import RemittanceView from "app/features/history/RemittanceView"
-import { formatWithCurrency } from "app/functions"
-import IconModal from "app/modals/IconModal"
+import AppealOrderModal from "app/modals/AppealOrderModal"
 import Head from "next/head"
-import Image from "next/image"
 import { useState } from "react"
 
 const RemittanceHistory = () => {
+  const [isOpen, setOpen] = useState(false)
+
   return (
     <Container id="history-page" className="!border-0" maxWidth="7xl">
       <Head>
@@ -22,8 +22,12 @@ const RemittanceHistory = () => {
           <div className="rounded border-1 border-stroke">
             <div className="grid gap-4 p-4 lg:p-6 lg:gap-6 text-primary">
               <RemittanceView />
+              <div className="border-t-1 border-stroke py-4">
+                <Button size="sm" className="w-28" onClick={() => setOpen(true)}>Appeal</Button>
+              </div>
             </div>
           </div>
+          <AppealOrderModal isOpen={isOpen} onSuccess={() => setOpen(false)} onDismiss={() => setOpen(false)} />
         </div>
       </div>
     </Container>
