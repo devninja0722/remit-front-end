@@ -1,15 +1,22 @@
 import { SearchIcon } from "@heroicons/react/solid"
 import Button from "app/components/Button"
 import Input from "app/components/Input"
-import { REMITTANCES } from "app/constants/remittances"
+import NavLink from "app/components/NavLink"
+import { REMITTANCES, STATUS } from "app/constants/remittances"
 import { classNames } from "app/functions"
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import RemittanceHeader from "./RemittanceHeader"
 import RemittanceItem from "./RemittanceItem"
 
 const RemittanceView = () => {
   const [filterOption, setFilterOption] = useState(0)
   const [filterText, setFilterText] = useState("")
+
+  const [filteredItems, setFilteredItems] = useState(REMITTANCES)
+
+  useEffect(() => {
+    setFilteredItems(REMITTANCES.filter(item => RegExp(["/*", STATUS.processing, STATUS.delivery][filterOption]).test(item.status)).filter(item => JSON.stringify(item).includes(filterText)))
+  }, [filterOption, filterText])
 
   return (
     <div className="flex flex-col space-y-3 overflow-auto">
@@ -26,9 +33,20 @@ const RemittanceView = () => {
         </div>
       </div>
       <RemittanceHeader />
-      {REMITTANCES.map((item, i) =>
-        <RemittanceItem key={i} item={item} />
-      )}
+      <div>
+        {filteredItems.length ? filteredItems.map((item, i) =>
+          <RemittanceItem key={i} item={item} />
+        ) : REMITTANCES.length ?
+          <p className="p-4 font-semibold text-center text-disabled">No matching result!</p> :
+          <div className="flex flex-col items-center p-4 space-y-4 font-semibold text-center text-disabled">
+            <p>There is no record of any remittance yet!</p>
+            <NavLink href="/send">
+              <a id={`send-nav-link`}>
+                <Button size="sm" className="w-32">Send money</Button>
+              </a></NavLink>
+          </div>
+        }
+      </div>
     </div>
   )
 }
