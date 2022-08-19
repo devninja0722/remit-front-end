@@ -1,7 +1,7 @@
 
 const RemittanceHeader = () => {
   return (
-    <div className="flex bg-gray px-3 py-2 text-sm !font-semibold rounded min-w-full w-fit">
+    <div className="flex bg-gray px-3 py-3 text-sm !font-semibold rounded min-w-full w-fit">
       <div className="flex flex-1">
         <div className="flex items-center w-1/12 min-w-24"><p className="">Order ID</p></div>
         <div className="flex items-center min-w-32"><p className="">Date</p></div>

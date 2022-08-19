@@ -26,7 +26,7 @@ const RemittanceHistory = ({ handleMove }: any) => {
         <title key="title">Remitance History | RemitWise</title>
         <meta key="description" name="description" content="Remittance History RemitWise" />
       </Head>
-      <div className="flex-col w-full h-screen px-8 pt-20 bg-white lg:flex lg:flex-row lg:pt-32">
+      <div className="flex-col w-full h-screen px-4 pt-20 bg-white md:px-8 lg:flex lg:flex-row lg:pt-32">
         <div className="flex flex-col h-full gap-4 lg:gap-6">
           <div className="flex items-center justify-between font-bold text-md lg:text-lg">
             <p>Your remittance</p>
