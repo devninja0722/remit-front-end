@@ -11,7 +11,7 @@ const AppBar = () => {
   const navLinkStyle =
     'p-2 text-sm md:text-base font-semibold transition-all md:p-3 whitespace-nowrap !text-primary hover:!opacity-60 outline-none'
   const activeNavLinkStyle = '!text-blue !font-semibold hover:!opacity-100 disabled'
-  const dropMenuStyle = 'flex justify-left items-center space-x-1 hover:!opacity-60 p-2 text-sm md:text-base transition-all outline-none'
+  const dropMenuStyle = 'flex justify-left font-semibold items-center space-x-1 hover:!opacity-60 p-2 text-sm md:text-base transition-all outline-none'
   const activeDropMenuStyle = '!font-semibold hover:!opacity-100 disabled'
   const routeTag: any = useRouter().asPath.split('/')[1].split('?')[0]
 
@@ -24,10 +24,10 @@ const AppBar = () => {
         <div className="px-8 mx-0.5 sm:px-16 lg:px-24 py-4 bg-white/50 backdrop-blur-lg">
           <div className="flex items-center justify-between">
             <div className="flex items-center space-x-8">
-              <div className="text-base md:text-md lg:text-lg font-bold">
+              <div className="text-base font-bold md:text-md lg:text-lg">
                 <NavLink href="/"><a>RemitWise</a></NavLink>
               </div>
-              <div className="hidden lg:flex space-x-2">
+              <div className="hidden space-x-2 lg:flex">
                 <NavLink href="/send">
                   <a id={`send-nav-link`} className={classNames(navLinkStyle, routeTag === 'send' ? activeNavLinkStyle : '')}>
                     Send money
@@ -56,11 +56,11 @@ const AppBar = () => {
               </div>
             </div>
             <div className="hidden lg:flex text-secondary" onMouseEnter={() => setMenuOpen(true)} onMouseLeave={() => setMenuOpen(false)}>
-              <div className="flex justify-center items-center space-x-2 hover:bg-stroke/40 rounded-3xl p-1 pr-2 transition-all cursor-pointer">
+              <div className="flex items-center justify-center p-1 pr-2 space-x-2 transition-all cursor-pointer hover:bg-stroke/40 rounded-3xl">
                 <Image src="/img/user.png" alt="user" width={42} height={42} className={classNames("rounded-full", menuOpen ? "border-2 border-blue" : "")} />
                 <ChevronDownIcon width={16} height={16} className={classNames("transition-all", menuOpen ? "rotate-180" : "")} />
               </div>
-              <div className={classNames("absolute bg-white/50 border-t-2 border-t-blue/50 p-2 pt-3 dropdown-menu gap-1 -translate-x-12 translate-y-14", menuOpen ? "grid" : "hidden")}>
+              <div className={classNames("absolute bg-white/60 border-t-2 border-t-blue/50 p-2 pt-3 dropdown-menu gap-1 -translate-x-12 translate-y-14", menuOpen ? "grid" : "hidden")}>
                 <NavLink href="/setting">
                   <a id={`setting-nav-link`}>
                     <div className={classNames(dropMenuStyle, routeTag === 'setting' ? activeDropMenuStyle : '', '!p-1')}><Image src="/img/menu/setting.svg" width={18} height={18} alt="setting" /><p>Settings</p></div>
@@ -90,12 +90,12 @@ const AppBar = () => {
                 onClose={() => setDrawerOpen(false)}
                 position="left"
               >
-                <div className="demo-content grid p-6 font-montserrat space-y-4">
+                <div className="grid p-6 space-y-4 demo-content font-montserrat">
                   <div className="flex justify-center mt-16">
                     <Image src="/img/user.png" alt="user" width={64} height={64} className="rounded-full" />
                   </div>
                   <div className="grid py-2">
-                    <div className="font-semibold uppercase mb-2">Menu</div>
+                    <div className="mb-2 font-semibold uppercase">Menu</div>
                     <NavLink href="/send">
                       <a id={`send-nav-link`} className={classNames(navLinkStyle, routeTag === 'send' ? activeNavLinkStyle : '')}>
                         Send money
@@ -124,7 +124,7 @@ const AppBar = () => {
                   </div>
                   <hr className="w-full border-stroke" />
                   <div className="grid py-2">
-                    <div className="font-semibold uppercase mb-2">Setting</div>
+                    <div className="mb-2 font-semibold uppercase">Setting</div>
                     <NavLink href="/setting">
                       <a id={`setting-nav-link`}>
                         <div className={classNames(dropMenuStyle, routeTag === 'setting' ? activeDropMenuStyle : '')}><Image src="/img/menu/setting.svg" width={18} height={18} alt="setting" /><p>Settings</p></div>
