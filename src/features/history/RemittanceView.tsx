@@ -4,15 +4,23 @@ import Input from "app/components/Input"
 import NavLink from "app/components/NavLink"
 import { REMITTANCES, STATUS } from "app/constants/remittances"
 import { classNames } from "app/functions"
+import RemittanceDetailModal from "app/modals/RemittanceDetailModal"
 import { useEffect, useState } from "react"
 import RemittanceHeader from "./RemittanceHeader"
 import RemittanceItem from "./RemittanceItem"
 
 const RemittanceView = () => {
+  const [isOpen, setOpen] = useState(false)
+  const [selectedId, setSelectedId] = useState(null)
+
   const [filterOption, setFilterOption] = useState(0)
   const [filterText, setFilterText] = useState("")
-
   const [filteredItems, setFilteredItems] = useState(REMITTANCES)
+
+  const handleOpenDetailModal = (id: any) => {
+    setSelectedId(id)
+    setOpen(true)
+  }
 
   useEffect(() => {
     setFilteredItems(REMITTANCES.filter(item => RegExp(["/*", STATUS.processing, STATUS.delivery][filterOption]).test(item.status)).filter(item => JSON.stringify(item).includes(filterText)))
@@ -34,7 +42,7 @@ const RemittanceView = () => {
       <div className="flex flex-col space-y-3 overflow-auto">
         <RemittanceHeader />
         {filteredItems.length ? filteredItems.map((item, i) =>
-          <RemittanceItem key={i} item={item} />
+          <RemittanceItem key={i} item={item} handleDetail={handleOpenDetailModal} />
         ) : REMITTANCES.length ?
           <p className="p-4 font-semibold text-center text-disabled">No matching result!</p> :
           <div className="flex flex-col items-center p-4 space-y-4 font-semibold text-center text-disabled">
@@ -46,6 +54,7 @@ const RemittanceView = () => {
           </div>
         }
       </div>
+      <RemittanceDetailModal isOpen={isOpen} onDismiss={() => setOpen(false)} orderId={selectedId} />
     </>
   )
 }

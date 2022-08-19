@@ -2,7 +2,7 @@ import { ChevronDownIcon } from "@heroicons/react/solid"
 import Button from "app/components/Button"
 import { STATUS } from "app/constants/remittances"
 import { classNames, formatWithCurrency } from "app/functions"
-import { useEffect, useState } from "react"
+import { useCallback, useEffect, useState } from "react"
 
 interface RemittanceItemProps {
   item: {
@@ -24,24 +24,25 @@ interface RemittanceItemProps {
     beneficiaryBank: string,
     beneficiaryBankAccount: string
   }
+  handleDetail: (id: any) => void
 }
 
-const RemittanceItem = ({ item }: RemittanceItemProps) => {
+const RemittanceItem = ({ item, handleDetail }: RemittanceItemProps) => {
   const [collapsed, setCollapsed] = useState(true)
   const [colWidth, setColWidth] = useState<number | undefined>(0)
 
-  useEffect(() => {
-    const handleResize = () => {
-      setColWidth(document.getElementById(item.id)?.clientWidth)
-    }
+  const handleCalcWidth = useCallback(() => {
+    setColWidth(document.getElementById(item.id)?.clientWidth)
+  }, [item.id])
 
-    window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
-  }, [item.id]);
+  useEffect(() => {
+    window.addEventListener("resize", handleCalcWidth)
+    return () => window.removeEventListener("resize", handleCalcWidth)
+  }, [item, handleCalcWidth]);
 
   return (
     <>
-      <div className="bg-white flex justify-between items-center px-3 py-3 text-sm lg:text-base !font-semibold text-dark-blue min-w-full w-fit cursor-pointer" id={item.id} onClick={() => setCollapsed(!collapsed)}>
+      <div className="bg-white flex justify-between items-center px-3 py-3 text-sm lg:text-base !font-semibold text-dark-blue min-w-full w-fit cursor-pointer" id={item.id} onClick={() => { setCollapsed(!collapsed), handleCalcWidth() }}>
         <div className="flex flex-1">
           <div className="flex items-center w-1/12 min-w-24"><p className="text-sm text-primary">{item.id}</p></div>
           <div className="flex items-center min-w-32"><p className="">{item.date}</p></div>
@@ -76,7 +77,7 @@ const RemittanceItem = ({ item }: RemittanceItemProps) => {
               <div className="flex items-center w-2/12 min-w-36"><p className="">{item.beneficiaryBank}</p></div>
               <div className="flex items-center w-3/12 min-w-44"><p className="">{item.beneficiaryBankAccount}</p></div>
             </div>
-            <div className="flex min-w-6"><Button size="sm" variant="empty">Details</Button></div>
+            <div className="flex min-w-6"><Button size="sm" variant="empty" onClick={() => handleDetail(item.id)}>Details</Button></div>
           </div>
         </div>
       }
